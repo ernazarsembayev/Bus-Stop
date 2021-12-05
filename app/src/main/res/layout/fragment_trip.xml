@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/route_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bus #1"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/direction_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/from"
+        app:layout_constraintEnd_toStartOf="@+id/direction_name_tv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/route_name_tv" />
+
+    <TextView
+        android:id="@+id/next_bus_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/to"
+        app:layout_constraintEnd_toStartOf="@+id/next_bus_arrival_tv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/direction_tv" />
+
+    <TextView
+        android:id="@+id/delay_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Delay"
+        app:layout_constraintEnd_toStartOf="@id/delay_variable_tv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/next_bus_tv" />
+
+    <TextView
+        android:id="@+id/direction_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Last stop name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/direction_tv"
+        app:layout_constraintTop_toBottomOf="@id/route_name_tv" />
+
+    <TextView
+        android:id="@+id/next_bus_arrival_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="9:00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/next_bus_tv"
+        app:layout_constraintTop_toBottomOf="@id/direction_name_tv" />
+
+    <TextView
+        android:id="@+id/delay_variable_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1 min"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/delay_tv"
+        app:layout_constraintTop_toBottomOf="@id/next_bus_arrival_tv" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/group_bottom_line_background"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="direction_name_tv, next_bus_arrival_tv, delay_variable_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

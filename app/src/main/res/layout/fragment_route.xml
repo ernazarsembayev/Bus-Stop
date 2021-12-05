@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/route_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bus #1"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/like_ib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:contentDescription="@string/like"
+        android:src="@drawable/ic_favorite_border"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/group_bottom_line_background"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="route_name_tv,like_ib" />
+
+    <TextView
+        android:id="@+id/from_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/from"
+        app:layout_constraintEnd_toStartOf="@+id/from_stop_name_tv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier1" />
+
+    <TextView
+        android:id="@+id/to_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/to"
+        app:layout_constraintEnd_toStartOf="@+id/to_stop_name_tv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/from_tv" />
+
+    <TextView
+        android:id="@+id/from_stop_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="first stop name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/from_tv"
+        app:layout_constraintTop_toBottomOf="@id/barrier1" />
+
+    <TextView
+        android:id="@+id/to_stop_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="last stop name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/to_tv"
+        app:layout_constraintTop_toBottomOf="@id/from_stop_name_tv" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/group_bottom_line_background"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="to_stop_name_tv, from_stop_name_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

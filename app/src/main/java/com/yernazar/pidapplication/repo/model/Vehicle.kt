@@ -1,8 +1,12 @@
 package org.jguniverse.pidapplicationgm.repo.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.sql.Timestamp
 
+@Entity
 data class Vehicle(
+        @PrimaryKey(autoGenerate = true)
         val tripId: String, // Trip Entity
         val originRouteName: String,
         val cisLineId: String,

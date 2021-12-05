@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.get
+import androidx.core.widget.doOnTextChanged
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,17 +19,29 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.data.geojson.GeoJsonLayer
 import com.yernazar.pidapplication.R
+import com.yernazar.pidapplication.adapter.SearchResultAdapter
 import com.yernazar.pidapplication.databinding.ActivityMapsBinding
-import org.jguniverse.pidapplicationgm.repo.model.Stop
+import com.yernazar.pidapplication.fragment.SearchResultsFragment
+import com.yernazar.pidapplication.fragment.TripFragment
+import com.yernazar.pidapplication.repo.database.AppDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.jguniverse.pidapplicationgm.repo.model.*
 import org.jguniverse.pidapplicationgm.utils.BitmapHelper
 import org.jguniverse.pidapplicationgm.utils.StopLoader
 import org.jguniverse.pidapplicationgm.utils.StopRenderer
+import java.sql.Timestamp
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolylineClickListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolylineClickListener, SearchResultAdapter.OnSearchItemClickListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+
+    private val searchResultsFragment = SearchResultsFragment()
+    private val searchTextChangeListener = searchResultsFragment.getSearchChangedListener()
+
+    private lateinit var db: AppDatabase
 
     private var layer: GeoJsonLayer? = null
     private val stops: List<Stop> by lazy {
@@ -54,11 +67,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolyli
             this.state = BottomSheetBehavior.STATE_COLLAPSED
         }
 
+        supportFragmentManager.beginTransaction().replace(R.id.bottom_sheet_frame, searchResultsFragment).commit()
+        searchResultsFragment.setListener(this)
 
+        val searchEditText: EditText = binding.root.rootView.findViewById(R.id.search_et)
+        searchEditText.doOnTextChanged { text, start, before, count ->
+            searchTextChangeListener.onSearchChanged(text.toString())
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        db = AppDatabase.getInstance(this)
     }
 
     private fun prepareMap(map: GoogleMap) {
@@ -96,6 +117,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolyli
 
         // Set custom info window adapter
         //clusterManager.markerCollection.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
+
+
+
 
         //todo
         // Add the places to the ClusterManager
@@ -191,5 +215,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolyli
      */
     override fun onMapReady(googleMap: GoogleMap) {
         prepareMap(googleMap)
+    }
+
+    override fun onSearchItemClick(route: Route) {
+        GlobalScope.launch {
+            val trip = db.tripDao().getByRouteId(routeId = route.uid)
+            val tripFragment = TripFragment(trip)
+            supportFragmentManager.beginTransaction().replace(R.id.bottom_sheet_frame, tripFragment).commit()
+        }
     }
 }

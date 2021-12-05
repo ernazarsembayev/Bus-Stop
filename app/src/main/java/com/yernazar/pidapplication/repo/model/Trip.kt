@@ -1,6 +1,11 @@
 package org.jguniverse.pidapplicationgm.repo.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Trip(
+        @PrimaryKey
         val uid: String,
         val routeId: String,
         val serviceId: String,
