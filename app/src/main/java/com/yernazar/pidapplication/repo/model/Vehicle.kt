@@ -7,6 +7,7 @@ import java.sql.Timestamp
 @Entity
 data class Vehicle(
         @PrimaryKey(autoGenerate = true)
+        val id: Int,
         val tripId: String, // Trip Entity
         val originRouteName: String,
         val cisLineId: String,
@@ -21,9 +22,9 @@ data class Vehicle(
         val delayLastStop: Int,
         val isCanceled: Boolean,
         val lastStopId: String, // (previous stop) Stop Entity
-        val lastStopDeparture: Timestamp, // (previous stop)
+        val lastStopDeparture: Long, // (previous stop)
         val nextStopId: String, // Stop Entity
-        val nextStopArrival: Timestamp,
+        val nextStopArrival: Long,
         val vehicleType: VehicleType,
         val allPosition: Int
 )

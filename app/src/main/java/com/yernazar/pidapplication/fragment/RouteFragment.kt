@@ -24,7 +24,7 @@ class RouteFragment(val route: Route) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //todo
-//        binding.fromStopNameTv =
+//        binding.fromStopNameTv = route.
 //        binding.fromStopNameTv =
     }
 

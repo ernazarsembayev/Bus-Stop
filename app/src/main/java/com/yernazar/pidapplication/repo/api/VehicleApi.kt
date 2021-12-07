@@ -13,7 +13,7 @@ interface VehicleApi {
     fun getById(@Path("id") id: Long) : Call<Route>
 
     companion object {
-        var BASE_URL = "http://193.165.96.157:8080/api/vehicle"
+        var BASE_URL = "http://193.165.96.157:8080/api/vehicle/"
 
         fun create() : StopApi {
 

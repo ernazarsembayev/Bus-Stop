@@ -19,10 +19,10 @@ interface RouteApi {
     fun getTrips(@Path("id") id: Long) : Call<Set<Trip>>
 
     @GET("/{name}")
-    fun getByNameLike(@Path("name") name: String) : Response<List<Route>>
+    fun getByNameLike(@Path("name") name: String) : Call<List<Route>>
 
     companion object {
-        var BASE_URL = "http://193.165.96.157:8080/api/route"
+        var BASE_URL = "http://193.165.96.157:8080/api/route/"
 
         fun create() : RouteApi {
 

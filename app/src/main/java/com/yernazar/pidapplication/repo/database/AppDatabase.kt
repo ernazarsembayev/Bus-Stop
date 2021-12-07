@@ -1,6 +1,7 @@
 package com.yernazar.pidapplication.repo.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -10,8 +11,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jguniverse.pidapplicationgm.repo.model.*
 import java.sql.Timestamp
+import java.time.LocalDateTime
 
-@Database(entities = [Trip::class, Route::class, Stop::class, Shape::class, Position::class], version = 1)
+@Database(entities = [Trip::class, Route::class, Stop::class, Shape::class, Position::class, Vehicle::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun tripDao(): TripDao
     abstract fun routeDao(): RouteDao
@@ -52,7 +54,15 @@ abstract class AppDatabase : RoomDatabase() {
                 50.08167, 14.42528, "zone_id",
                 1, "parent location")
 
-            val stop2 = Stop("1","Václavské náměstí",
+            val stop2 = Stop("U484Z2P","Václavské náměstí",
+                50.08196, 14.42572, "zone_id",
+                1, "parent location")
+
+            val stop3 = Stop("3","Poslední autobusová zastávka",
+                50.08167, 14.42528, "zone_id",
+                1, "parent location")
+
+            val stop4 = Stop("4","Poslední autobusová zastávka",
                 50.08196, 14.42572, "zone_id",
                 1, "parent location")
 
@@ -68,16 +78,17 @@ abstract class AppDatabase : RoomDatabase() {
                 "9", "", "99", "7A0603",
                 "FFFFFF", "0", "https://pid.cz/linka/9", isNight = false)
 
-            val position = Position("9_6952_211202", 50.07914, 14.42059,
+            val position = Position(12,"9_6952_211202", 50.07914, 14.42059,
                 1, 10.4, "U484Z2P", "U997Z2P", false)
 
-            val vehicle = Vehicle("9_6952_211202", "9",
+            val vehicle = Vehicle(12, "9_6952_211202", "9",
                 "", 0, 50.07914, 14.42059,
                 0, 10.4, true, 1,
-                1, 1, false, "U997Z2P",
-                Timestamp(0),  "U484Z2P",
-                Timestamp(0), VehicleType.TRAM, 0)
+                1, 1, false, "3",
+                System.currentTimeMillis() - 6000,  "U484Z2P",
+                System.currentTimeMillis(), VehicleType.TRAM, 0)
 
+            Log.e("populate", "database")
             val stopDao = db.stopDao()
             val tripDao = db.tripDao()
             val shapeDao = db.shapeDao()
@@ -86,7 +97,7 @@ abstract class AppDatabase : RoomDatabase() {
             val positionDao = db.positionDao()
 
             GlobalScope.launch {
-                stopDao.insert(listOf(stop1, stop2))
+                stopDao.insert(listOf(stop1, stop2, stop3, stop4))
                 tripDao.insert(trip)
                 shapeDao.insert(listOf(shape))
                 routeDao.insert(route)

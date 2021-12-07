@@ -8,5 +8,8 @@
     <string name="like">Like</string>
     <string name="to">To</string>
     <string name="from">From</string>
+    <string name="direction">Direction</string>
+    <string name="next_bus_arrival">Next bus arrival at</string>
+    <string name="next_in">Next in</string>
 
 </resources>

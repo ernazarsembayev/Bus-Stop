@@ -6,27 +6,24 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yernazar.pidapplication.R
+import com.yernazar.pidapplication.interfaces.OnRouteSelectListener
 import org.jguniverse.pidapplicationgm.repo.model.Route
 
 class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
 
     private var routes = emptyList<Route>()
-    private lateinit var listener: OnSearchItemClickListener
+    private lateinit var listener: OnRouteSelectListener
 
     fun setRoutes(routes : List<Route>){
         this.routes = routes
     }
 
-    fun setListener(listener: OnSearchItemClickListener){
+    fun setListener(listener: OnRouteSelectListener){
         this.listener = listener
     }
 
-    interface OnSearchItemClickListener{
-        fun onSearchItemClick(route: Route)
-    }
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var textView : TextView = itemView.findViewById(R.id.vehicle_name_tv)
+        val textView : TextView = itemView.findViewById(R.id.vehicle_name_tv)
 
         init {
             itemView.setOnClickListener(this)
@@ -36,7 +33,7 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>
             val position = layoutPosition
             routes[position]
             if (position != RecyclerView.NO_POSITION) {
-                listener.onSearchItemClick(routes[position])
+                listener.onRouteSelect(routes[position])
             }
         }
     }
@@ -50,7 +47,7 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>
 
         val route = routes[position]
 
-        holder.textView.text = route.uid
+        holder.textView.text = route.longName
 
     }
 

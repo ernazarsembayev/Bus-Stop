@@ -7,16 +7,22 @@ import org.jguniverse.pidapplicationgm.repo.model.Vehicle
 @Dao
 interface VehicleDao {
 
-    @Insert
-    suspend fun insert(vehicle: Vehicle)
+    @Query("SELECT * FROM Vehicle WHERE tripId LIKE :tripId")
+    fun getByTripId(tripId: String): Vehicle?
+
+    @Query("SELECT * FROM Vehicle WHERE nextStopId LIKE :stopId")
+    fun getByNextStopId(stopId: String): Vehicle?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(vehicle: Vehicle)
 
     @Update
-    suspend fun update(vehicle: Vehicle)
+    fun update(vehicle: Vehicle)
 
     @Delete
-    suspend fun delete(vehicle: Vehicle)
+    fun delete(vehicle: Vehicle)
 
     @Query("delete from Vehicle")
-    suspend fun deleteAllVehicles()
+    fun deleteAllVehicles()
 
 }

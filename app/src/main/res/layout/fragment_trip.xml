@@ -9,6 +9,7 @@
         android:id="@+id/route_name_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/group_bottom_line_background"
         android:text="Bus #1"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +19,8 @@
         android:id="@+id/direction_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/from"
+        android:text="@string/direction"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/direction_name_tv"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +30,7 @@
         android:id="@+id/next_bus_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/to"
+        android:text="@string/next_bus_arrival"
         app:layout_constraintEnd_toStartOf="@+id/next_bus_arrival_tv"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,37 +51,37 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Last stop name"
+        app:layout_constraintBaseline_toBaselineOf="@+id/direction_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/direction_tv"
-        app:layout_constraintTop_toBottomOf="@id/route_name_tv" />
+        app:layout_constraintStart_toEndOf="@+id/direction_tv" />
 
     <TextView
         android:id="@+id/next_bus_arrival_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="9:00"
+        app:layout_constraintBaseline_toBaselineOf="@+id/next_bus_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/next_bus_tv"
-        app:layout_constraintTop_toBottomOf="@id/direction_name_tv" />
+        app:layout_constraintStart_toEndOf="@+id/next_bus_tv" />
 
     <TextView
         android:id="@+id/delay_variable_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="1 min"
+        app:layout_constraintBaseline_toBaselineOf="@+id/delay_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/delay_tv"
-        app:layout_constraintTop_toBottomOf="@id/next_bus_arrival_tv" />
+        app:layout_constraintStart_toEndOf="@+id/delay_tv" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/group_bottom_line_background"
         app:barrierDirection="start"
+        android:background="@drawable/group_bottom_line_vertical_background"
         app:constraint_referenced_ids="direction_name_tv, next_bus_arrival_tv, delay_variable_tv" />
 
 

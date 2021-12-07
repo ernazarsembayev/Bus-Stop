@@ -1,26 +1,26 @@
 package com.yernazar.pidapplication.repo.database.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
-import org.jguniverse.pidapplicationgm.repo.model.Stop
 import org.jguniverse.pidapplicationgm.repo.model.Trip
 
 @Dao
 interface TripDao {
 
-    @Query("SELECT * FROM trip WHERE routeId = :routeId")
-    suspend fun getByRouteId(routeId: String): Flow<Trip>
+    @Query("SELECT * FROM trip WHERE uid LIKE :id")
+    fun getById(id: String): Trip?
 
-    @Insert
-    suspend fun insert(trip: Trip)
+    @Query("SELECT * FROM trip WHERE routeId LIKE :routeId")
+    fun getByRouteId(routeId: String): Trip?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(trip: Trip)
 
     @Update
-    suspend fun update(trip: Trip)
+    fun update(trip: Trip)
 
     @Delete
-    suspend fun delete(trip: Trip)
+    fun delete(trip: Trip)
 
     @Query("delete from Trip")
-    suspend fun deleteAllTrips()
+    fun deleteAllTrips()
 }

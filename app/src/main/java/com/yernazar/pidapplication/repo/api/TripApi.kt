@@ -29,7 +29,7 @@ interface TripApi {
 
 
     companion object {
-        var BASE_URL = "http://193.165.96.157:8080/api/trip"
+        var BASE_URL = "http://193.165.96.157:8080/api/trip/"
 
         fun create() : StopApi {
 

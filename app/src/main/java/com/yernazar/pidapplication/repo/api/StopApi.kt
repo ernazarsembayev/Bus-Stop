@@ -26,7 +26,7 @@ interface StopApi {
     fun getInArea(@Path("id") p1: GeoPoint, @Path("id") p2: GeoPoint) : Call<Set<Stop>>
 
     companion object {
-        var BASE_URL = "http://193.165.96.157:8080/api/stop"
+        var BASE_URL = "http://193.165.96.157:8080/api/stop/"
 
         fun create() : StopApi {
 

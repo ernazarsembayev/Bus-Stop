@@ -7,15 +7,18 @@ import org.jguniverse.pidapplicationgm.repo.model.Stop
 @Dao
 interface ShapeDao {
 
-    @Insert
-    suspend fun insert(shape: List<Shape>)
+    @Query("SELECT * FROM Shape WHERE uid = :id ORDER BY ptSequence")
+    fun getById(id: String): List<Shape>?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(shape: List<Shape>)
 
     @Update
-    suspend fun update(shape: Shape)
+    fun update(shape: Shape)
 
     @Delete
-    suspend fun delete(shape: Shape)
+    fun delete(shape: Shape)
 
     @Query("delete from Shape")
-    suspend fun deleteAllShapes()
+    fun deleteAllShapes()
 }
