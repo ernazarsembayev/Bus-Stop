@@ -1,0 +1,4145 @@
+{
+      "features": [
+        {
+          "geometry": {
+            "coordinates": [
+              14.29887,
+              50.0652
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 1
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.29916,
+              50.06527
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.0219,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 2
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.29995,
+              50.06558
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.08856,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 3
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30037,
+              50.06571
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.12155,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 4
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30057,
+              50.06577
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.13731,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 5
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30161,
+              50.06579
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.21219,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 6
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30264,
+              50.06577
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.28604,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 7
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30362,
+              50.06575
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.35628,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 8
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30443,
+              50.06574
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.41383,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 9
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30541,
+              50.0657
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.48445,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 10
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30597,
+              50.06564
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.52482,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 11
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30623,
+              50.06551
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.54839,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 12
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30783,
+              50.06462
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.69971,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 13
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30801,
+              50.06458
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.71364,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 14
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30941,
+              50.0645
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.81388,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 15
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.30972,
+              50.06448
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.83645,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 16
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31018,
+              50.06444
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.86978,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 17
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31075,
+              50.06433
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.9126,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 18
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31114,
+              50.06414
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.94718,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 19
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3115,
+              50.06396
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 0.98003,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 20
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31199,
+              50.06368
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.02685,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 21
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3124,
+              50.06346
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.06507,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 22
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31344,
+              50.06284
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.16633,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 23
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31428,
+              50.06306
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.23155,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 24
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31494,
+              50.06334
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.28805,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 25
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31558,
+              50.06365
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.34488,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 26
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31628,
+              50.06401
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.4092,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 27
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31637,
+              50.06405
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.41736,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 28
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31695,
+              50.06433
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.4691,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 29
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31769,
+              50.06462
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.53085,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 30
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3181,
+              50.06476
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.56434,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 31
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3186,
+              50.06489
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.60339,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 32
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31923,
+              50.065
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.65013,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 33
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.31989,
+              50.0651
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.69851,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 34
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32022,
+              50.06513
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.72186,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 35
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32168,
+              50.06516
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.82649,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 36
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32275,
+              50.06515
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.90357,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 37
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32334,
+              50.06519
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.94553,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 38
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32367,
+              50.06525
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.9708,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 39
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32401,
+              50.0653
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 1.99552,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 40
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3246,
+              50.06542
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.0394,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 41
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32516,
+              50.06563
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.08624,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 42
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32628,
+              50.06616
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.18557,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 43
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32644,
+              50.06625
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.20035,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 44
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32675,
+              50.0664
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.22874,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 45
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32722,
+              50.06659
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.26877,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 46
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32776,
+              50.06671
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.30916,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 47
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32836,
+              50.06678
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.35279,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 48
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32885,
+              50.06683
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.38845,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 49
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32936,
+              50.06698
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.42837,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 50
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.32982,
+              50.06715
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.46633,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 51
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33037,
+              50.06731
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.50927,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 52
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33098,
+              50.06742
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.55495,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 53
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33153,
+              50.0675
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.59555,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 54
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33226,
+              50.06755
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.6476,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 55
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33361,
+              50.0676
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.74456,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 56
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33498,
+              50.06765
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.84268,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 57
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33652,
+              50.0677
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 2.95327,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 58
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33731,
+              50.06773
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.00968,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 59
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.33793,
+              50.06777
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.05443,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 60
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.34146,
+              50.0679
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.3073,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 61
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.34185,
+              50.06791
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.33551,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 62
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.34285,
+              50.06794
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.40738,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 63
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.34667,
+              50.06806
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.68073,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 64
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35009,
+              50.06817
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 3.9262,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 65
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35198,
+              50.06826
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.06156,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 66
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35256,
+              50.0683
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.10352,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 67
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35292,
+              50.06833
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.12963,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 68
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35327,
+              50.06839
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.15539,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 69
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35429,
+              50.06857
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.23131,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 70
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35783,
+              50.06921
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.49443,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 71
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35895,
+              50.06941
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.57784,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 72
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.35991,
+              50.0695
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.64745,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 73
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36065,
+              50.06955
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.70011,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 74
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36182,
+              50.06958
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.78389,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 75
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36292,
+              50.06962
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.86303,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 76
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36477,
+              50.06967
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 4.99559,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 77
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36684,
+              50.06982
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.14474,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 78
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36933,
+              50.07002
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.32416,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 79
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.36997,
+              50.07005
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.36995,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 80
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3705,
+              50.07008
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.40825,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 81
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37063,
+              50.07008
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.41777,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 82
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37121,
+              50.07007
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.45895,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 83
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37177,
+              50.07005
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.49945,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 84
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37227,
+              50.07003
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.53551,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 85
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37272,
+              50.07
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.56729,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 86
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37326,
+              50.07
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.60623,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 87
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37352,
+              50.07005
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.62614,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 88
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37353,
+              50.07005
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.62658,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 89
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37513,
+              50.07047
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.75027,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 90
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3757,
+              50.07054
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.79138,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 91
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37621,
+              50.07058
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.8284,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 92
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37737,
+              50.07048
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.91233,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 93
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.37793,
+              50.07042
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 5.95314,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 94
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3786,
+              50.07054
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.00236,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 95
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38,
+              50.07072
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.10449,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 96
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38019,
+              50.07074
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.1187,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 97
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38094,
+              50.0708
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.17271,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 98
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38201,
+              50.07092
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.25035,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 99
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38256,
+              50.07098
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.29037,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 100
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38515,
+              50.07136
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.48044,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 101
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3872,
+              50.07162
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.62952,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 102
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38725,
+              50.07162
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.6337,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 103
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38838,
+              50.07175
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.71575,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 104
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.38952,
+              50.07191
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.79897,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 105
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39144,
+              50.07216
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 6.93926,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 106
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39328,
+              50.07231
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.07178,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 107
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3935,
+              50.07232
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.08827,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 108
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39406,
+              50.07236
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.12832,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 109
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39592,
+              50.07238
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.26129,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 110
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39735,
+              50.07226
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.36422,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 111
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39767,
+              50.07215
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.39081,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 112
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39775,
+              50.07213
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.39646,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 113
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39789,
+              50.07208
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.40797,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 114
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.3981,
+              50.072
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.42571,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 115
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39829,
+              50.07193
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.44145,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 116
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39844,
+              50.07188
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.45307,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 117
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39937,
+              50.07176
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.52107,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 118
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.39974,
+              50.07171
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.54859,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 119
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40091,
+              50.07179
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.63261,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 120
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40266,
+              50.0719
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.75871,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 121
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40363,
+              50.07197
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.82799,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 122
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40378,
+              50.07198
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.83877,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 123
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40406,
+              50.07207
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.86218,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 124
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40381,
+              50.07315
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 7.98319,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 125
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4038,
+              50.07357
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.02958,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 126
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40379,
+              50.07407
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.08602,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 127
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40374,
+              50.07447
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.13006,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 128
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40381,
+              50.07492
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.18051,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 129
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40392,
+              50.07544
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.23875,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 130
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40411,
+              50.07626
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.33105,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 131
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40413,
+              50.07636
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.34287,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 132
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40418,
+              50.07669
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.37975,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 133
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40418,
+              50.07693
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.40606,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 134
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40428,
+              50.07825
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.55257,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 135
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40424,
+              50.07849
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.57971,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 136
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40418,
+              50.07884
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.61861,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 137
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40432,
+              50.07898
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.63705,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 138
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40465,
+              50.07934
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.68406,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 139
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40479,
+              50.07943
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.69827,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 140
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4047,
+              50.07998
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.7593,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 141
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40461,
+              50.08054
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.82137,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 142
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4046,
+              50.08056
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.82432,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 143
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40456,
+              50.0808
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.85134,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 144
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40453,
+              50.08117
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 8.89245,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 145
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40613,
+              50.08121
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.00698,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 146
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40699,
+              50.08125
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.06918,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 147
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40795,
+              50.08127
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.13754,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 148
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40848,
+              50.08128
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.17575,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 149
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40911,
+              50.0813
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.22093,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 150
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.40956,
+              50.0813
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.25318,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 151
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41055,
+              50.08132
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.32353,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 152
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.413,
+              50.08139
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.49966,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 153
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41327,
+              50.0814
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.51899,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 154
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41379,
+              50.08141
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.55571,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 155
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41407,
+              50.08142
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.5757,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 156
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41481,
+              50.08143
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.62882,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 157
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41488,
+              50.08144
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.63428,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 158
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41535,
+              50.08145
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.66756,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 159
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41601,
+              50.08156
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.71594,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 160
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4164,
+              50.08164
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.74575,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 161
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41766,
+              50.08196
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.84252,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 162
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41916,
+              50.08236
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 9.95869,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 163
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41964,
+              50.08117
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.09537,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 164
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41965,
+              50.08114
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.09832,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 165
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41983,
+              50.08047
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.17434,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 166
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.41958,
+              50.07918
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.31818,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 167
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42019,
+              50.07915
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.36233,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 168
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42034,
+              50.07914
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.37253,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 169
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42101,
+              50.07914
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.42091,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 170
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42103,
+              50.07914
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.42203,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 171
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4221,
+              50.07914
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.49868,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 172
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42255,
+              50.07946
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.54631,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 173
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42308,
+              50.07982
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.60176,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 174
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42338,
+              50.08006
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.63618,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 175
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42346,
+              50.08012
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.64421,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 176
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42393,
+              50.08052
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.70078,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 177
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42418,
+              50.08069
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.72639,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 178
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42538,
+              50.08169
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.8664,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 179
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42569,
+              50.08197
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.90542,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 180
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42603,
+              50.08228
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.94706,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 181
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4261,
+              50.08238
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.95927,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 182
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42618,
+              50.08249
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 10.97316,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 183
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42812,
+              50.08377
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.17199,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 184
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42896,
+              50.08434
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.25945,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 185
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4292,
+              50.08453
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.28636,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 186
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.42995,
+              50.08497
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.35903,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 187
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43075,
+              50.08535
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.43045,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 188
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43087,
+              50.08541
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.44139,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 189
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43141,
+              50.08558
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.4844,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 190
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43206,
+              50.08572
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.53324,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 191
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43401,
+              50.08612
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.67939,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 192
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43408,
+              50.08614
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.68495,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 193
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43431,
+              50.08621
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.70345,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 194
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43469,
+              50.08624
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.73045,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 195
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.436,
+              50.08577
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.83745,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 196
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43632,
+              50.08566
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.86403,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 197
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43647,
+              50.08563
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.87521,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 198
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4367,
+              50.08561
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.8917,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 199
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.437,
+              50.08566
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.91391,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 200
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43738,
+              50.08591
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.95311,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 201
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43771,
+              50.08613
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 11.98732,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 202
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43796,
+              50.08623
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.00793,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 203
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43817,
+              50.08624
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.02297,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 204
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4385,
+              50.08616
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.04803,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 205
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.43913,
+              50.08589
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.10259,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 206
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44,
+              50.08542
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.18331,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 207
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44038,
+              50.08527
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.21533,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 208
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4407,
+              50.08521
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.23949,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 209
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44104,
+              50.0852
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.26382,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 210
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44147,
+              50.08523
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.29484,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 211
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44202,
+              50.08521
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.33367,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 212
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44342,
+              50.08515
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.43467,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 213
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44431,
+              50.08506
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.49856,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 214
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44534,
+              50.08496
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.57325,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 215
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44659,
+              50.08485
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.66382,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 216
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44711,
+              50.0848
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.70146,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 217
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44752,
+              50.08475
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.73087,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 218
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.44879,
+              50.08461
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.82322,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 219
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45008,
+              50.08445
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.91714,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 220
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45071,
+              50.08438
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.96332,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 221
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45115,
+              50.08431
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 12.99563,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 222
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45274,
+              50.08412
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.11137,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 223
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45317,
+              50.08405
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.14338,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 224
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45349,
+              50.08399
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.16691,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 225
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45518,
+              50.08263
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.36019,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 226
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45605,
+              50.08251
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.4241,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 227
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45649,
+              50.08245
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.45664,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 228
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45674,
+              50.08244
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.47465,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 229
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45699,
+              50.08242
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.49256,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 230
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45733,
+              50.08245
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.51656,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 231
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45766,
+              50.08249
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.54056,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 232
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45773,
+              50.08249
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.54575,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 233
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.45902,
+              50.08261
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.63911,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 234
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46197,
+              50.08298
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.85401,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 235
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46371,
+              50.08325
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 13.98225,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 236
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46538,
+              50.08352
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.10565,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 237
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46689,
+              50.08377
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.21712,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 238
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46981,
+              50.08423
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.43224,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 239
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47002,
+              50.08427
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.44766,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 240
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47071,
+              50.08438
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.49859,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 241
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4705,
+              50.08487
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.55572,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 242
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4702,
+              50.08562
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.64107,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 243
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47015,
+              50.08574
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.65462,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 244
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46968,
+              50.08695
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.79415,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 245
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46919,
+              50.08789
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.9041,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 246
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46893,
+              50.0884
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 14.96414,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 247
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46858,
+              50.08909
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.04434,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 248
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46843,
+              50.08937
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.07716,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 249
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46789,
+              50.09035
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.19294,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 250
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.46886,
+              50.09049
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.26385,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 251
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47008,
+              50.09071
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.35426,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 252
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47243,
+              50.09113
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.52879,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 253
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47351,
+              50.09132
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.60949,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 254
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47453,
+              50.09151
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.68506,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 255
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47504,
+              50.09161
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.72322,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 256
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.4782,
+              50.09192
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 15.95175,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 257
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.47973,
+              50.09208
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.06332,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 258
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48101,
+              50.09221
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.15564,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 259
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48129,
+              50.09224
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.17584,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 260
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48257,
+              50.09236
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.269,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 261
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48388,
+              50.09245
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.36264,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 262
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48558,
+              50.09251
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.48445,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 263
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48584,
+              50.09251
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.50326,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 264
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48694,
+              50.09251
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.58236,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 265
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.48823,
+              50.0925
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.67458,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 266
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49003,
+              50.09241
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.80333,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 267
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49132,
+              50.09227
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.89694,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 268
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49249,
+              50.09218
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.98131,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 269
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49267,
+              50.09217
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 16.99468,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 270
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49489,
+              50.09201
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 17.15455,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 271
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49687,
+              50.0919
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 17.29681,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 272
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49855,
+              50.0918
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 17.41711,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 273
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49892,
+              50.09163
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 17.44982,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 274
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49926,
+              50.09151
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 17.47705,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 275
+          },
+          "type": "Feature"
+        },
+        {
+          "geometry": {
+            "coordinates": [
+              14.49937,
+              50.09147
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "shape_dist_traveled": 17.48684,
+            "shape_id": "L9V2",
+            "shape_pt_sequence": 276
+          },
+          "type": "Feature"
+        }
+      ],
+      "type": "FeatureCollection"
+    }

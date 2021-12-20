@@ -1,9 +1,7 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk 31
@@ -17,7 +15,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -34,11 +31,16 @@ android {
     buildFeatures {
         viewBinding true
     }
+    dataBinding {
+        enabled = true
+    }
+
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {
-
-    def room_version = "2.2.3"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
@@ -48,19 +50,38 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.6.0-alpha01'
 
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+
+    // Google services
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.google.maps.android:android-maps-utils:1.1.0'
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    // ViewModel and LiveData
+    def lifecycle_version = "2.4.0"
+    def lifecycle_arch_version = "1.1.1"
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_arch_version"
+    implementation "android.arch.lifecycle:common-java8:$lifecycle_arch_version"
 
-    implementation "androidx.room:room-runtime:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
-    implementation "androidx.room:room-ktx:2.3.0"
+    // Room
+    def room_version = "2.3.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt 'androidx.room:room-compiler:2.3.0'
 
+    // Retrofit
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Koin
+    def koin_version = "3.1.2"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
