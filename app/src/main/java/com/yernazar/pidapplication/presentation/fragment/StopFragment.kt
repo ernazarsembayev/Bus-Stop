@@ -11,12 +11,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.presentation.adapter.RoutesAdapter
 import com.yernazar.pidapplication.databinding.FragmentStopBinding
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
-import com.yernazar.pidapplication.data.repository.database.AppDatabase
-import com.yernazar.pidapplication.domain.MainViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.Default
-import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.yernazar.pidapplication.domain.SharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class StopFragment(onRouteSelectListener: OnRouteSelectListener) : Fragment() {
 
@@ -25,7 +21,7 @@ class StopFragment(onRouteSelectListener: OnRouteSelectListener) : Fragment() {
     private var routesAdapter = RoutesAdapter(onRouteSelectListener)
     val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
 
-    private val viewModel by viewModel<MainViewModel>()
+    private val mViewModel: SharedViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +42,7 @@ class StopFragment(onRouteSelectListener: OnRouteSelectListener) : Fragment() {
         recyclerView.layoutManager = llm
         recyclerView.adapter = routesAdapter
 
-        viewModel.liveDataStopRoutes.observe( viewLifecycleOwner, {
+        mViewModel.liveDataStopRoutes.observe( viewLifecycleOwner, {
             routesAdapter.setRoutes(it)
         })
     }

@@ -1,7 +1,6 @@
 package com.yernazar.pidapplication.domain
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -10,7 +9,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.clustering.ClusterManager
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
@@ -23,16 +21,17 @@ import org.jguniverse.pidapplicationgm.repo.model.Route
 import org.jguniverse.pidapplicationgm.repo.model.Stop
 import org.jguniverse.pidapplicationgm.repo.model.Trip
 import org.jguniverse.pidapplicationgm.utils.StopRenderer
+import org.koin.core.component.inject
 
-class MainViewModel(application: Application,
-                    private val getRouteByIdUseCase: GetRouteByIdUseCase,
-                    private val getTripByRouteIdUseCase: GetTripByRouteIdUseCase,
-                    private val getAllStopsUseCase: GetAllStopsUseCase,
-                    private val getRouteByNameLikeUseCase: GetRouteByNameLikeUseCase,
-                    private val getRouteNextArriveUseCase: GetRouteNextArriveUseCase,
-                    private val getShapesByIdUseCase: GetShapesByIdUseCase,
-)
+class SharedViewModel(application: Application)
     : BaseViewModel(application), GoogleMap.OnPolylineClickListener {
+
+    private val getRouteByNameLikeUseCase: GetRouteByNameLikeUseCase by inject()
+    private val getRouteNextArriveUseCase: GetRouteNextArriveUseCase by inject()
+    private val getTripByRouteIdUseCase: GetTripByRouteIdUseCase by inject()
+    private val getShapesByIdUseCase: GetShapesByIdUseCase by inject()
+    private val getRouteByIdUseCase: GetRouteByIdUseCase by inject()
+    private val getAllStopsUseCase: GetAllStopsUseCase by inject()
 
     private lateinit var mMap: GoogleMap
 
@@ -67,42 +66,35 @@ class MainViewModel(application: Application,
 
                 if (shapes.isNotEmpty()) {
 
+                    val polylineOptions = PolylineOptions().clickable(true)
+                    for (shape in shapes) {
+                        polylineOptions.add(LatLng(shape.lat, shape.lon))
+                    }
+
                     CoroutineScope(Dispatchers.Main).launch {
-                        _liveDataBottomSheetState.postValue(BottomSheetBehavior.STATE_HALF_EXPANDED)
-
-                        val polylineOptions = PolylineOptions().clickable(true)
-                        for (shape in shapes) {
-                            polylineOptions.add(LatLng(shape.lat, shape.lon))
-                        }
-
-                        if (_liveDataPolyline.value != null)
-                            _liveDataPolyline.value!!.remove()
+                        _liveDataPolyline.value?.remove()
                         val polyline = mMap.addPolyline(polylineOptions)
                         polyline.tag = "route"
                         polyline.color = -0x1000000
                         polyline.width = 12.toFloat()
-                        _liveDataPolyline.postValue(polyline)
+                        _liveDataPolyline.setValue(polyline)
                     }
                 }
             }
         }
-//            trip?.let {
-//                loadRoute(trip)
-//            }
-
     }
 
     fun onSearchChanged(requestText: String) {
         if (requestText.isNotEmpty()) {
             CoroutineScope(Dispatchers.Default).launch {
                 val searchResult = getRouteByNameLikeUseCase.execute(requestText)
-                if (searchResult != null) {
-                    _liveDataSearchRoute.postValue(searchResult!!)
+                searchResult?.let {
+                    _liveDataSearchRoute.postValue(it)
                     return@launch
                 }
             }
         }
-        _liveDataSearchRoute.postValue(emptyList())
+        _liveDataSearchRoute.value = emptyList()
     }
 
     fun onMapReady(googleMap: GoogleMap) {
@@ -122,9 +114,6 @@ class MainViewModel(application: Application,
         addClusteredMarkers(mMap)
     }
 
-    /**
-     * Adds markers to the map with clustering support.
-     */
     private fun addClusteredMarkers(map: GoogleMap) {
         // Create the ClusterManager class and set the custom renderer
         val clusterManager = ClusterManager<Stop>(getContext(), map)
@@ -174,7 +163,7 @@ class MainViewModel(application: Application,
 
     private fun onClusterItemClick(stop: Stop) {
         // On bus stop select
-        _liveDataStop.postValue(stop)
+        _liveDataStop.value = stop
         CoroutineScope(Dispatchers.Default).launch {
             _liveDataStopRoutes.postValue(getRouteNextArriveUseCase.execute(stopUid = stop.uid))
         }
@@ -184,9 +173,7 @@ class MainViewModel(application: Application,
         _liveDataBottomSheetState.value = newBottomSheetState
     }
 
-
     override fun onPolylineClick(p0: Polyline) {
-        Log.e("onPolylineClick", p0.id)
         p0.remove()
     }
 }

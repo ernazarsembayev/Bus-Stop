@@ -27,7 +27,7 @@ import com.google.gson.GsonBuilder
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.utils.config.Config
 import com.yernazar.pidapplication.databinding.ActivityMapsBinding
-import com.yernazar.pidapplication.domain.MainViewModel
+import com.yernazar.pidapplication.domain.SharedViewModel
 import com.yernazar.pidapplication.data.localData.LocalData
 import com.yernazar.pidapplication.presentation.fragment.SearchResultsFragment
 import com.yernazar.pidapplication.presentation.fragment.StopFragment
@@ -54,12 +54,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     private var tripFragment: TripFragment? = null
     private var stopFragment: StopFragment? = null
 
-
-    private val searchTextChangeListener = searchResultsFragment.getSearchChangedListener()
-
-    private lateinit var db: AppDatabase
-
-    private val viewModel by viewModel<MainViewModel>()
+    private val viewModel by viewModel<SharedViewModel>()
 
     private lateinit var searchEditText: EditText
 
@@ -81,8 +76,72 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
         initBottomSheet()
         initSearchEditText()
+        initToggle()
 
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
+        searchResultsFragment.setListener(this)
+
+        viewModel.liveDataBottomSheetState.observe( this, {
+            bottomSheetBehavior.state = it
+        })
+
+        viewModel.liveDataStop.observe(this, {
+            beginStopFragment()
+        })
+
+        populateDatabase()
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        viewModel.onMapReady(googleMap)
+    }
+
+    private fun initBottomSheet() {
+        BottomSheetBehavior.from(binding.root.rootView.findViewById(R.id.bottom_sheet)).apply {
+            val displayMetrics: DisplayMetrics = resources.displayMetrics
+            val height = displayMetrics.heightPixels
+            val maxHeight = (height * 0.95).toInt()
+            bottomSheetBehavior = this
+            peekHeight = 200
+            setMaxHeight(maxHeight)
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
+        val bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
+
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED){
+                    searchEditText.clearFocus()
+                    val imm =
+                        this@MapsActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(bottomSheet.windowToken, 0)
+                } else {
+                    this@MapsActivity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+                }
+            }
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+            }
+        }
+        bottomSheetBehavior.addBottomSheetCallback(bottomSheetCallback)
+    }
+
+    private fun initSearchEditText() {
+        searchEditText = binding.root.rootView.findViewById(R.id.search_et)
+        searchEditText.onFocusChangeListener { hasFocus ->
+            if (hasFocus) {
+                beginSearchFragment()
+            }
+        }
+        searchEditText.doOnTextChanged { text, _, _, _ ->
+            viewModel.onSearchChanged(text.toString())
+        }
+    }
+
+    private fun initToggle() {
         toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -104,25 +163,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 this@MapsActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
         }
-
-        searchResultsFragment.setListener(this)
-
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-        viewModel.liveDataBottomSheetState.observe( this, {
-            bottomSheetBehavior.state = it
-        })
-
-        viewModel.liveDataStop.observe(this, {
-            beginStopFragment()
-        })
-
-        db = AppDatabase.getInstance(this)
-        populateDatabase(db)
     }
 
     override fun onRouteSelect(route: Route) {
@@ -150,78 +190,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 //        val color = ContextCompat.getColor(this, R.color.black)
 //        BitmapHelper.vectorToBitmap(this, R.drawable.ic_baseline_directions_bus_24, color)
 //    }
-    override fun onMapReady(googleMap: GoogleMap) {
-        viewModel.onMapReady(googleMap)
-    }
 
-    private fun initBottomSheet() {
-        BottomSheetBehavior.from(binding.root.rootView.findViewById(R.id.bottom_sheet)).apply {
-            val displayMetrics: DisplayMetrics = resources.displayMetrics
-            val height = displayMetrics.heightPixels
-            val maxHeight = (height * 0.95).toInt()
-            bottomSheetBehavior = this
-            peekHeight = 200
-            setMaxHeight(maxHeight)
-            this.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
-
-        val bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
-
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED){
-//                    if (currentFocus != null) {
-                    searchEditText.clearFocus()
-                    val imm =
-                        this@MapsActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(bottomSheet.windowToken, 0)
-//                    }
-                } else {
-                    this@MapsActivity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-                }
-            }
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-            }
-        }
-        bottomSheetBehavior.addBottomSheetCallback(bottomSheetCallback)
-    }
-
-    private fun initSearchEditText() {
-        searchEditText = binding.root.rootView.findViewById(R.id.search_et)
-        searchEditText.onFocusChangeListener { hasFocus ->
-
-            // TODO
-            // improve the algorithm
-            if (hasFocus) {
-//                Log.e("size", supportFragmentManager.fragments.size.toString())
-//                Log.e("size", supportFragmentManager.backStackEntryCount.toString())
-//                for (item in supportFragmentManager.fragments) {
-//                    Log.e(
-//                        "fraggg",
-//                        item?.tag.toString()
-//                    )
-//                }
-//                val frag = supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1]?.tag.toString()
-//                if (frag == Config.tripFragmentName){
-//                    super.onBackPressed()
-//                } else if(frag != Config.searchResultsFragmentName) {
-//                    supportFragmentManager.popBackStack(
-//                        null,
-//                        FragmentManager.POP_BACK_STACK_INCLUSIVE
-//                    )
-                supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.bottom_sheet_frame,
-                        searchResultsFragment,
-                        Config.searchResultsFragmentName
-                    ).addToBackStack(Config.searchResultsFragmentName)
-                    .commit()
-//                }
-                bottomSheetBehavior.state = searchResultsFragment.bottomSheetState
-            }
-        }
-        searchEditText.doOnTextChanged { text, _, _, _ ->
-            searchTextChangeListener.onSearchChanged(text.toString())
-        }
+    private fun beginSearchFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.bottom_sheet_frame,
+                searchResultsFragment,
+                Config.searchResultsFragmentName
+            ).addToBackStack(Config.searchResultsFragmentName)
+            .commit()
+        viewModel.onFragmentChanged(searchResultsFragment.bottomSheetState)
     }
 
     private fun beginStopFragment() {
@@ -235,18 +213,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     Config.stopFragmentName)
                 .addToBackStack(Config.stopFragmentName)
                 .commit()
-            viewModel.onFragmentChanged(stopFragment!!.bottomSheetState)
+            viewModel.onFragmentChanged(it.bottomSheetState)
         }
     }
 
     private fun beginTripFragment() {
         tripFragment = TripFragment()
-        tripFragment?.let { supportFragmentManager.beginTransaction()
+        tripFragment?.let {
+            supportFragmentManager.beginTransaction()
             .replace(
                 R.id.bottom_sheet_frame, tripFragment!!,
                 Config.tripFragmentName)
             .addToBackStack(Config.tripFragmentName)
             .commit()
+            viewModel.onFragmentChanged(it.bottomSheetState)
         }
     }
 
@@ -273,8 +253,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         }
     }
 
-    private fun populateDatabase(db: AppDatabase) {
+    private fun populateDatabase() {
 
+        val db = AppDatabase.getInstance(this)
 
         val builder = GsonBuilder()
         val gson = builder.create()
