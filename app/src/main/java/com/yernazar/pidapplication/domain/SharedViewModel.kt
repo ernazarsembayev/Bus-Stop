@@ -9,6 +9,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.clustering.ClusterManager
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
@@ -99,6 +100,9 @@ class SharedViewModel(application: Application)
 
     fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+        mMap.setPadding(0,0,0, 200)
+
         mMap.setMapStyle(
             MapStyleOptions.loadRawResourceStyle(
                 getContext(), R.raw.map_style))
@@ -169,8 +173,16 @@ class SharedViewModel(application: Application)
         }
     }
 
-    fun onFragmentChanged(newBottomSheetState: Int) {
+    fun setBottomSheetState(newBottomSheetState: Int) {
         _liveDataBottomSheetState.value = newBottomSheetState
+        onBottomSheetStateChanged(newBottomSheetState)
+    }
+
+    fun onBottomSheetStateChanged(newBottomSheetState: Int) {
+        when(newBottomSheetState) {
+            BottomSheetBehavior.STATE_COLLAPSED -> mMap.setPadding(0,0,0, 200)
+            BottomSheetBehavior.STATE_HALF_EXPANDED -> mMap.setPadding(0,0,0, 400)
+        }
     }
 
     override fun onPolylineClick(p0: Polyline) {

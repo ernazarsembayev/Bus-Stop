@@ -114,6 +114,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         val bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
 
             override fun onStateChanged(bottomSheet: View, newState: Int) {
+
+                viewModel.onBottomSheetStateChanged(newState)
                 if (newState == BottomSheetBehavior.STATE_COLLAPSED){
                     searchEditText.clearFocus()
                     val imm =
@@ -186,6 +188,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         return super.onOptionsItemSelected(item)
     }
 
+    private fun setBottomSheetState(newState: Int) {
+        viewModel.setBottomSheetState(newState)
+    }
+
 //    private val busIcon: BitmapDescriptor by lazy {
 //        val color = ContextCompat.getColor(this, R.color.black)
 //        BitmapHelper.vectorToBitmap(this, R.drawable.ic_baseline_directions_bus_24, color)
@@ -199,7 +205,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 Config.searchResultsFragmentName
             ).addToBackStack(Config.searchResultsFragmentName)
             .commit()
-        viewModel.onFragmentChanged(searchResultsFragment.bottomSheetState)
+        viewModel.setBottomSheetState(searchResultsFragment.bottomSheetState)
     }
 
     private fun beginStopFragment() {
@@ -213,7 +219,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     Config.stopFragmentName)
                 .addToBackStack(Config.stopFragmentName)
                 .commit()
-            viewModel.onFragmentChanged(it.bottomSheetState)
+            viewModel.setBottomSheetState(it.bottomSheetState)
         }
     }
 
@@ -226,7 +232,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 Config.tripFragmentName)
             .addToBackStack(Config.tripFragmentName)
             .commit()
-            viewModel.onFragmentChanged(it.bottomSheetState)
+            viewModel.setBottomSheetState(it.bottomSheetState)
         }
     }
 
@@ -238,17 +244,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         supportFragmentManager.backStackEntryCount > 0)
             ) {
                 super.onBackPressed()
-                if (supportFragmentManager.backStackEntryCount > 0)
-                    bottomSheetBehavior.state =
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    setBottomSheetState(
                         when (supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1].tag.toString()) {
                             Config.searchResultsFragmentName -> searchResultsFragment.bottomSheetState
                             Config.tripFragmentName -> tripFragment?.bottomSheetState?.run { bottomSheetBehavior.state }!!
                             Config.stopFragmentName -> stopFragment?.bottomSheetState?.run { bottomSheetBehavior.state }!!
                             else -> bottomSheetBehavior.state
-                        } else
-                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-            } else {
-                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                        }
+                    )
+                    return
+                }
+            setBottomSheetState(BottomSheetBehavior.STATE_COLLAPSED)
             }
         }
     }
