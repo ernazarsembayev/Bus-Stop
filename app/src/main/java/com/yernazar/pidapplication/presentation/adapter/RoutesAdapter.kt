@@ -10,15 +10,16 @@ import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
 import com.yernazar.pidapplication.utils.mapper.RouteMapper
 import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
+import org.jguniverse.pidapplicationgm.repo.model.Route
 import java.util.concurrent.TimeUnit
 
 class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
 
-    private var routes: List<RouteAndNextArrive>? = emptyList()
+    private var routes: List<Route>? = emptyList()
 
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setRoutes(routes : List<RouteAndNextArrive>){
+    fun setRoutes(routes : List<Route>){
         this.routes = routes
         notifyDataSetChanged()
     }
@@ -36,8 +37,7 @@ class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : Recycler
             routes?.get(position)
             if (position != RecyclerView.NO_POSITION) {
                 routes?.let {
-                    val route = RouteMapper.toRoute(routes!![position])
-                    onRouteSelectListener.onRouteSelect(route)
+                    onRouteSelectListener.onRouteSelect(routes!![position])
                 }
             }
         }
@@ -58,9 +58,9 @@ class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : Recycler
 //        Log.e("")
 
         if (routeNextArrive != null) {
-            val dateString = TimeUnit.MILLISECONDS.toMinutes(routeNextArrive.nextArrive - sysTime)
+//            val dateString = TimeUnit.MILLISECONDS.toMinutes(routeNextArrive.nextArrive - sysTime)
             holder.routeNameTv.text = routeNextArrive.longName
-            holder.nextInTv.text = "$dateString mins"
+//            holder.nextInTv.text = "$dateString mins"
         }
 
     }

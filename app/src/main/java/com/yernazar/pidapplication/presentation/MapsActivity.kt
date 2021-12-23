@@ -93,7 +93,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             beginStopFragment()
         })
 
-        populateDatabase()
+//        populateDatabase()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

@@ -18,6 +18,6 @@ interface AppRepository {
 
     suspend fun getAllStops(): List<Stop>
 
-    suspend fun getRouteNextArrive(stopUid: String): List<RouteAndNextArrive>
+    suspend fun getRouteNextArrive(stopUid: String): List<Route>
 
 }

@@ -27,9 +27,9 @@ class ServerCommunicator {
         return routeApi.getById(routeId)
     }
 
-    suspend fun getTripByRouteId(routeId: String): Response<Trip?> {
-        val tripApi = TripApi.create()
-        return tripApi.getByRouteId(routeId)
+    suspend fun getTripByRouteId(routeId: String): Response<List<Trip>> {
+        val routeApi = RouteApi.create()
+        return routeApi.getTrips(routeId)
     }
 
     suspend fun getShapesById(shapeId: String): Response<List<Shape>> {
@@ -42,9 +42,9 @@ class ServerCommunicator {
         return stopApi.getAllStops()
     }
 
-//    suspend fun getRouteNextArrive(stopUid: String): Response<List<Stop>> {
-//        val routeApi = RouteApi.create()
-//        return routeApi.get()
-//    }
+    suspend fun getRouteNextArrive(stopUid: String): Response<List<Route>> {
+        val stopApi = StopApi.create()
+        return stopApi.getRoutes(stopUid)
+    }
 
 }

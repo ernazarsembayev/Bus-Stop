@@ -13,25 +13,25 @@ import retrofit2.http.Path
 
 interface StopApi {
 
-    @GET("/{id}")
+    @GET("stop/{id}")
     fun getById(@Path("id") id: Long) : Call<Stop>
 
-    @GET("/{name}")
+    @GET("stop/")
     suspend fun getAllStops() : Response<List<Stop>>
 
-    @GET("/{name}")
+    @GET("stop/{name}")
     fun getByNameLike(@Path("name") name: String) : Call<Set<Stop>>
 
     // get routes for given stop
-    @GET("/{id}/routes")
-    fun getRoutes(@Path("id") id: Long) : Call<Set<Route>>
+    @GET("stop/{uid}/routes")
+    suspend fun getRoutes(@Path("uid") uid: String) : Response<List<Route>>
 
     // get Stops in given area restricted by 2 points
-    @GET("/{p1}/{p2}")
+    @GET("stop/{p1}/{p2}")
     fun getInArea(@Path("id") p1: GeoPoint, @Path("id") p2: GeoPoint) : Call<Set<Stop>>
 
     companion object {
-        private var BASE_URL = Config.BASE_URL + "api/stop/"
+        private var BASE_URL = Config.BASE_URL + "api/"
 
         fun create() : StopApi {
 

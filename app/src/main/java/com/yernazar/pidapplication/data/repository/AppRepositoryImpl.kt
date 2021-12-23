@@ -19,6 +19,7 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
                 Log.e("routeResponse.body",routeResponse.body().toString())
                 return routeResponse.body()
             }
+        throw NullPointerException()
         return database.routeDao().getByNameLike(routeName)
     }
 
@@ -28,6 +29,7 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
             routeResponse.body()?.let {
                 return routeResponse.body()
             }
+        throw NullPointerException()
         return database.routeDao().getById(routeId)
     }
 
@@ -35,8 +37,9 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
         val tripResponse = serverCommunicator.getTripByRouteId(routeId)
         if (tripResponse.isSuccessful)
             tripResponse.body()?.let {
-                return it
+                return it[0]
             }
+        throw NullPointerException()
         return database.tripDao().getByRouteId(routeId)
     }
 
@@ -46,6 +49,7 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
             shapesResponse.body()?.let {
                 return it
             }
+        throw NullPointerException()
         return database.shapeDao().getById(shapeId)
     }
 
@@ -55,16 +59,18 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
             stopsResponse.body()?.let {
                 return it
             }
+        throw NullPointerException()
         return database.stopDao().getAll()
     }
 
-    override suspend fun getRouteNextArrive(stopUid: String): List<RouteAndNextArrive> {
-//        val routeResponse = serverCommunicator.getRouteNextArrive()
-//        if (routeResponse.isSuccessful)
-//            routeResponse.body()?.let {
-//                return it
-//            }
-        return database.routeDao().getRouteNextArrive(stopUid)
+    override suspend fun getRouteNextArrive(stopUid: String): List<Route> {
+        val routeResponse = serverCommunicator.getRouteNextArrive(stopUid)
+        if (routeResponse.isSuccessful)
+            routeResponse.body()?.let {
+                return it
+            }
+        throw NullPointerException()
+//        return database.routeDao().getRouteNextArrive(stopUid)
     }
 
 }

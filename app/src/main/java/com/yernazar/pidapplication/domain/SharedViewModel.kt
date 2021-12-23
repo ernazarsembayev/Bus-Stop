@@ -41,14 +41,14 @@ class SharedViewModel(application: Application)
     private val _liveDataStop = MutableLiveData<Stop>()
     private val _liveDataTrip = MutableLiveData<Trip>()
     private val _liveDataRoute = MutableLiveData<Route>()
-    private val _liveDataStopRoutes = MutableLiveData<List<RouteAndNextArrive>>()
+    private val _liveDataStopRoutes = MutableLiveData<List<Route>>()
     private val _liveDataSearchRoute = MutableLiveData<List<Route>>()
 
     val liveDataBottomSheetState: LiveData<Int> = _liveDataBottomSheetState
     val liveDataStop: LiveData<Stop> = _liveDataStop
     val liveDataTrip: LiveData<Trip?> = _liveDataTrip
     val liveDataRoute: LiveData<Route> = _liveDataRoute
-    val liveDataStopRoutes: LiveData<List<RouteAndNextArrive>> = _liveDataStopRoutes
+    val liveDataStopRoutes: LiveData<List<Route>> = _liveDataStopRoutes
     val liveDataSearchRoute: LiveData<List<Route>> = _liveDataSearchRoute
 
     fun onRouteSelect(route: Route) {

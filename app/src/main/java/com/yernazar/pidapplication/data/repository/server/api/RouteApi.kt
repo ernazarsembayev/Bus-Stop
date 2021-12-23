@@ -17,7 +17,7 @@ interface RouteApi {
 
     // get trips for given route
     @GET("/{id}/trips")
-    fun getTrips(@Path("id") id: Long) : Call<Set<Trip>>
+    suspend fun getTrips(@Path("id") routeId: String) : Response<List<Trip>>
 
     @GET("/{name}")
     suspend fun getByNameLike(@Path("name") name: String) : Response<List<Route>>
