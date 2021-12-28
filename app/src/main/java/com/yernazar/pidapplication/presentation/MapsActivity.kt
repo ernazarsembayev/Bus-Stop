@@ -95,6 +95,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             beginStopFragment()
         })
 
+        viewModel.liveDataVehicle.observe(this, {
+            beginTripFragment()
+        })
+
+
         populateDatabase()
     }
 

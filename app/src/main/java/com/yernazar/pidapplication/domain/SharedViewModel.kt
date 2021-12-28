@@ -233,9 +233,9 @@ class SharedViewModel(application: Application)
     private fun onClusterVehicleItemClick(vehicle: Vehicle) {
         // On bus stop select
         _liveDataVehicle.value = vehicle
-        CoroutineScope(Dispatchers.Default).launch {
+//        CoroutineScope(Dispatchers.Default).launch {
 //            _liveDataStopRoutes.postValue(getRouteNextArriveUseCase.execute(stopUid = stop.uid))
-        }
+//        }
     }
 
     fun setBottomSheetState(newBottomSheetState: Int) {

@@ -34,8 +34,6 @@ class RouteFragment : Fragment() {
             binding.routeLongNameTv.text = it.longName
         })
 
-
-
     }
 
 }
