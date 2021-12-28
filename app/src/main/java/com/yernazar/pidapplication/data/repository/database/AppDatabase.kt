@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.yernazar.pidapplication.data.repository.database.dao.*
-import org.jguniverse.pidapplicationgm.repo.model.*
+import com.yernazar.pidapplication.data.repository.model.*
 
-@Database(entities = [Trip::class, Route::class, Stop::class, Shape::class, Position::class, Vehicle::class], version = 1, exportSchema = false)
+@Database(entities = [Trip::class, Route::class, Stop::class, ShapeOld::class, Position::class, Vehicle::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun tripDao(): TripDao
     abstract fun routeDao(): RouteDao

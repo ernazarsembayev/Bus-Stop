@@ -1,12 +1,12 @@
 package com.yernazar.pidapplication.utils.mapper
 
 import com.yernazar.pidapplication.data.repository.server.shapeResponse.ShapeResponse
-import org.jguniverse.pidapplicationgm.repo.model.Shape
+import com.yernazar.pidapplication.data.repository.model.ShapeOld
 
 object ShapeMapper {
-    fun toDatabaseShape(shapeResponse: ShapeResponse) : List<Shape> {
+    fun toDatabaseShape(shapeResponse: ShapeResponse) : List<ShapeOld> {
         return shapeResponse.features.map {
-            Shape(
+            ShapeOld(
 
                 uid = it.properties.shapeId,
                 lat = it.geometry.coordinates[1],

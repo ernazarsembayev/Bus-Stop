@@ -8,10 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
-import com.yernazar.pidapplication.utils.mapper.RouteMapper
-import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
-import org.jguniverse.pidapplicationgm.repo.model.Route
-import java.util.concurrent.TimeUnit
+import com.yernazar.pidapplication.data.repository.model.Route
 
 class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
 

@@ -1,4 +1,4 @@
-package org.jguniverse.pidapplicationgm.utils
+package com.yernazar.pidapplication.utils
 
 import android.content.Context
 import android.graphics.Bitmap

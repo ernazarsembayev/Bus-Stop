@@ -1,7 +1,7 @@
 package com.yernazar.pidapplication.data.repository.server.api
 
 import com.yernazar.pidapplication.utils.config.Config
-import org.jguniverse.pidapplicationgm.repo.model.Route
+import com.yernazar.pidapplication.data.repository.model.Route
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

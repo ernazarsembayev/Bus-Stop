@@ -39,28 +39,28 @@ class TripFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
-            CoroutineScope(Default).launch {
-                val db = context?.let { AppDatabase.getInstance(it) }
-
-                if (db != null && mViewModel.liveDataTrip.value != null && mViewModel.liveDataRoute.value != null) {
-                    val vehicleDao = db.vehicleDao()
-                    val stopDao = db.stopDao()
-                    val vehicle = vehicleDao.getByTripId(tripId = mViewModel.liveDataTrip.value!!.uid)
-                    if (vehicle != null) {
-                        val stop = stopDao.getById(vehicle.lastStopId)
-                        withContext(Main) {
-                            val date = Date(vehicle.nextStopArrival)
-                            val format = SimpleDateFormat("HH:mm")
-                            //todo resource string
-                            binding.routeNameTv.text = mViewModel.liveDataRoute.value!!.longName + ", Trip id #" + mViewModel.liveDataTrip.value!!.uid
-                            binding.directionNameTv.text = stop?.name
-                            binding.nextBusArrivalTv.text = format.format(date)
-                            binding.delayVariableTv.text = vehicle.delay.toString()
-                        }
-                    }
-                }
-            }
-        })
+//        mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
+//            CoroutineScope(Default).launch {
+//                val db = context?.let { AppDatabase.getInstance(it) }
+//
+//                if (db != null && mViewModel.liveDataTrip.value != null && mViewModel.liveDataRoute.value != null) {
+//                    val vehicleDao = db.vehicleDao()
+//                    val stopDao = db.stopDao()
+//                    val vehicle = vehicleDao.getByTripId(tripId = mViewModel.liveDataTrip.value!!.trips.uid)
+//                    if (vehicle != null) {
+//                        val stop = stopDao.getById(vehicle.lastStopId)
+//                        withContext(Main) {
+//                            val date = Date(vehicle.nextStopArrival)
+//                            val format = SimpleDateFormat("HH:mm")
+//                            //todo resource string
+//                            binding.routeNameTv.text = mViewModel.liveDataRoute.value!!.longName + ", Trip id #" + mViewModel.liveDataTrip.value!!.uid
+//                            binding.directionNameTv.text = stop?.name
+//                            binding.nextBusArrivalTv.text = format.format(date)
+//                            binding.delayVariableTv.text = vehicle.delay.toString()
+//                        }
+//                    }
+//                }
+//            }
+//        })
     }
 }

@@ -1,7 +1,7 @@
 package com.yernazar.pidapplication.data.repository.database.dao
 
 import androidx.room.*
-import org.jguniverse.pidapplicationgm.repo.model.Stop
+import com.yernazar.pidapplication.data.repository.model.Stop
 
 @Dao
 interface StopDao {

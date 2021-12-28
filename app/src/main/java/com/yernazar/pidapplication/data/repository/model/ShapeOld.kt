@@ -1,10 +1,10 @@
-package org.jguniverse.pidapplicationgm.repo.model
+package com.yernazar.pidapplication.data.repository.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Shape(
+data class ShapeOld(
         val uid: String,
         val lat: Double,
         val lon: Double,

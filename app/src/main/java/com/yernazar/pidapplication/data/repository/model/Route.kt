@@ -1,4 +1,4 @@
-package org.jguniverse.pidapplicationgm.repo.model
+package com.yernazar.pidapplication.data.repository.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

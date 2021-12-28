@@ -2,13 +2,12 @@ package com.yernazar.pidapplication.data.repository
 
 import android.util.Log
 import com.yernazar.pidapplication.data.repository.database.AppDatabase
-import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
 import com.yernazar.pidapplication.data.repository.server.ServerCommunicator
+import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
 import com.yernazar.pidapplication.domain.repository.AppRepository
-import org.jguniverse.pidapplicationgm.repo.model.Route
-import org.jguniverse.pidapplicationgm.repo.model.Shape
-import org.jguniverse.pidapplicationgm.repo.model.Stop
-import org.jguniverse.pidapplicationgm.repo.model.Trip
+import com.yernazar.pidapplication.data.repository.model.Route
+import com.yernazar.pidapplication.data.repository.model.ShapeOld
+import com.yernazar.pidapplication.data.repository.model.Stop
 
 class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, private val database: AppDatabase) : AppRepository {
 
@@ -19,8 +18,7 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
                 Log.e("routeResponse.body",routeResponse.body().toString())
                 return routeResponse.body()
             }
-        throw NullPointerException()
-        return database.routeDao().getByNameLike(routeName)
+        return emptyList()
     }
 
     override suspend fun getRouteById(routeId: String): Route? {
@@ -29,28 +27,26 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
             routeResponse.body()?.let {
                 return routeResponse.body()
             }
-        throw NullPointerException()
-        return database.routeDao().getById(routeId)
+        return null
     }
 
-    override suspend fun getTripByRouteId(routeId: String): Trip? {
+    override suspend fun getTripByRouteId(routeId: String): RouteShapeVehicles? {
         val tripResponse = serverCommunicator.getTripByRouteId(routeId)
         if (tripResponse.isSuccessful)
             tripResponse.body()?.let {
-                return it[0]
+                return it
             }
-        throw NullPointerException()
-        return database.tripDao().getByRouteId(routeId)
+        return null
     }
 
-    override suspend fun getShapesById(shapeId: String): List<Shape> {
+    override suspend fun getShapesById(shapeId: String): List<ShapeOld> {
         val shapesResponse = serverCommunicator.getShapesById(shapeId)
         if (shapesResponse.isSuccessful)
             shapesResponse.body()?.let {
                 return it
             }
-        throw NullPointerException()
-        return database.shapeDao().getById(shapeId)
+//        return database.shapeDao().getById(shapeId)
+        return emptyList()
     }
 
     override suspend fun getAllStops(): List<Stop> {
@@ -59,18 +55,17 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
             stopsResponse.body()?.let {
                 return it
             }
-        throw NullPointerException()
-        return database.stopDao().getAll()
+        return emptyList()
     }
 
     override suspend fun getRouteNextArrive(stopUid: String): List<Route> {
+
         val routeResponse = serverCommunicator.getRouteNextArrive(stopUid)
         if (routeResponse.isSuccessful)
             routeResponse.body()?.let {
                 return it
             }
-        throw NullPointerException()
-//        return database.routeDao().getRouteNextArrive(stopUid)
+        return emptyList()
     }
 
 }

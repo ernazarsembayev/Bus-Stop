@@ -1,7 +1,7 @@
 package com.yernazar.pidapplication.data.repository.database.dao
 
 import androidx.room.*
-import org.jguniverse.pidapplicationgm.repo.model.Position
+import com.yernazar.pidapplication.data.repository.model.Position
 
 @Dao
 interface PositionDao {

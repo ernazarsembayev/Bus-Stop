@@ -1,23 +1,23 @@
 package com.yernazar.pidapplication.data.repository.database.dao
 
 import androidx.room.*
-import org.jguniverse.pidapplicationgm.repo.model.Shape
+import com.yernazar.pidapplication.data.repository.model.ShapeOld
 
 @Dao
 interface ShapeDao {
 
-    @Query("SELECT * FROM Shape WHERE uid = :id ORDER BY ptSequence")
-    fun getById(id: String): List<Shape>
+    @Query("SELECT * FROM ShapeOld WHERE uid = :id ORDER BY ptSequence")
+    fun getById(id: String): List<ShapeOld>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(shape: List<Shape>)
+    fun insert(shapeOld: List<ShapeOld>)
 
     @Update
-    fun update(shape: Shape)
+    fun update(shapeOld: ShapeOld)
 
     @Delete
-    fun delete(shape: Shape)
+    fun delete(shapeOld: ShapeOld)
 
-    @Query("delete from Shape")
+    @Query("delete from ShapeOld")
     fun deleteAllShapes()
 }

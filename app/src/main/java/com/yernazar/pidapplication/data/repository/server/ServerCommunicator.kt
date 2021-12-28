@@ -3,11 +3,10 @@ package com.yernazar.pidapplication.data.repository.server
 import com.yernazar.pidapplication.data.repository.server.api.RouteApi
 import com.yernazar.pidapplication.data.repository.server.api.ShapeApi
 import com.yernazar.pidapplication.data.repository.server.api.StopApi
-import com.yernazar.pidapplication.data.repository.server.api.TripApi
-import org.jguniverse.pidapplicationgm.repo.model.Route
-import org.jguniverse.pidapplicationgm.repo.model.Shape
-import org.jguniverse.pidapplicationgm.repo.model.Stop
-import org.jguniverse.pidapplicationgm.repo.model.Trip
+import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.model.Route
+import com.yernazar.pidapplication.data.repository.model.ShapeOld
+import com.yernazar.pidapplication.data.repository.model.Stop
 import retrofit2.Response
 
 class ServerCommunicator {
@@ -27,12 +26,12 @@ class ServerCommunicator {
         return routeApi.getById(routeId)
     }
 
-    suspend fun getTripByRouteId(routeId: String): Response<List<Trip>> {
+    suspend fun getTripByRouteId(routeId: String): Response<RouteShapeVehicles> {
         val routeApi = RouteApi.create()
         return routeApi.getTrips(routeId)
     }
 
-    suspend fun getShapesById(shapeId: String): Response<List<Shape>> {
+    suspend fun getShapesById(shapeId: String): Response<List<ShapeOld>> {
         val shapeApi = ShapeApi.create()
         return shapeApi.getById(shapeId)
     }

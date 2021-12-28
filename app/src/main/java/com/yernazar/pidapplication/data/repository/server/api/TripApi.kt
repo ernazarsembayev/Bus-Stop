@@ -1,7 +1,7 @@
 package com.yernazar.pidapplication.data.repository.server.api
 
+import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.utils.config.Config
-import org.jguniverse.pidapplicationgm.repo.model.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -23,7 +23,7 @@ interface TripApi {
 
     // get geoshape i.e. set of geopoints to represent path(shape)
     @GET("/{id}/shape")
-    fun getShape(@Path("id") id: Long) : Call<Shape>
+    fun getShape(@Path("id") id: Long) : Call<ShapeOld>
 
     // get current position
     @GET("/{id}/position")

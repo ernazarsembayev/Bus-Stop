@@ -1,4 +1,4 @@
-package org.jguniverse.pidapplicationgm.repo.model
+package com.yernazar.pidapplication.data.repository.model
 
 data class GeoPoint (
         val lat: Long,

@@ -5,12 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.databinding.FragmentRouteBinding
-import org.jguniverse.pidapplicationgm.repo.model.Route
+import com.yernazar.pidapplication.domain.SharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class RouteFragment(val route: Route) : Fragment() {
+class RouteFragment : Fragment() {
 
     private lateinit var binding: FragmentRouteBinding
+    val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
+
+    private val mViewModel: SharedViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,9 +28,14 @@ class RouteFragment(val route: Route) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//todo
-//        binding.fromStopNameTv = route.
-//        binding.fromStopNameTv =
+
+        mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
+            binding.routeShortNameTv.text = it.shortName
+            binding.routeLongNameTv.text = it.longName
+        })
+
+
+
     }
 
 }

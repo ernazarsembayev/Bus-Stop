@@ -1,9 +1,8 @@
 package com.yernazar.pidapplication.data.repository.server.api
 
+import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
 import com.yernazar.pidapplication.utils.config.Config
-import org.jguniverse.pidapplicationgm.repo.model.Route
-import org.jguniverse.pidapplicationgm.repo.model.Trip
-import retrofit2.Call
+import com.yernazar.pidapplication.data.repository.model.Route
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,14 +11,14 @@ import retrofit2.http.Path
 
 interface RouteApi {
 
-    @GET("/{id}")
+    @GET("{id}")
     suspend fun getById(@Path("id") id: String) : Response<Route?>
 
     // get trips for given route
-    @GET("/{id}/trips")
-    suspend fun getTrips(@Path("id") routeId: String) : Response<List<Trip>>
+    @GET("{id}/trips")
+    suspend fun getTrips(@Path("id") routeId: String) : Response<RouteShapeVehicles>
 
-    @GET("/{name}")
+    @GET("search/{name}")
     suspend fun getByNameLike(@Path("name") name: String) : Response<List<Route>>
 
     companion object {

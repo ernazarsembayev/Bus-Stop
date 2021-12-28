@@ -1,8 +1,7 @@
 package com.yernazar.pidapplication.domain.usecase
 
-import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
 import com.yernazar.pidapplication.domain.repository.AppRepository
-import org.jguniverse.pidapplicationgm.repo.model.Route
+import com.yernazar.pidapplication.data.repository.model.Route
 
 class GetRouteNextArriveUseCase(private val appRepository: AppRepository) {
 

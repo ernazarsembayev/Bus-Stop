@@ -36,10 +36,11 @@ import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
 import com.yernazar.pidapplication.utils.mapper.ShapeMapper
 import com.yernazar.pidapplication.data.repository.server.shapeResponse.ShapeResponse
 import com.yernazar.pidapplication.data.repository.database.AppDatabase
+import com.yernazar.pidapplication.data.repository.model.*
+import com.yernazar.pidapplication.presentation.fragment.RouteFragment
 import com.yernazar.pidapplication.presentation.loginView.presentation.LoginActivity
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Default
-import org.jguniverse.pidapplicationgm.repo.model.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -52,6 +53,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private val searchResultsFragment = SearchResultsFragment()
     private var tripFragment: TripFragment? = null
+    private var routeFragment: RouteFragment? = null
     private var stopFragment: StopFragment? = null
 
     private val viewModel by viewModel<SharedViewModel>()
@@ -93,7 +95,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             beginStopFragment()
         })
 
-//        populateDatabase()
+        populateDatabase()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -176,7 +178,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
         searchEditText.clearFocus()
 
-        beginTripFragment()
+        beginRouteFragment()
+//        beginTripFragment()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -227,13 +230,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         tripFragment = TripFragment()
         tripFragment?.let {
             supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.bottom_sheet_frame, tripFragment!!,
+                    Config.tripFragmentName)
+                .addToBackStack(Config.tripFragmentName)
+                .commit()
+            viewModel.setBottomSheetState(it.bottomSheetState)
+        }
+    }
+    private fun beginRouteFragment() {
+        routeFragment = RouteFragment()
+        supportFragmentManager.beginTransaction()
             .replace(
-                R.id.bottom_sheet_frame, tripFragment!!,
+                R.id.bottom_sheet_frame, routeFragment!!,
                 Config.tripFragmentName)
             .addToBackStack(Config.tripFragmentName)
             .commit()
-            viewModel.setBottomSheetState(it.bottomSheetState)
-        }
+        viewModel.setBottomSheetState(routeFragment!!.bottomSheetState)
     }
 
     override fun onBackPressed() {

@@ -2,7 +2,7 @@ package com.yernazar.pidapplication.data.repository.database.dao
 
 import androidx.room.*
 import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
-import org.jguniverse.pidapplicationgm.repo.model.Route
+import com.yernazar.pidapplication.data.repository.model.Route
 
 @Dao
 interface RouteDao {

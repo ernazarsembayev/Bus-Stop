@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
-import org.jguniverse.pidapplicationgm.repo.model.Route
+import com.yernazar.pidapplication.data.repository.model.Route
 
 class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
 

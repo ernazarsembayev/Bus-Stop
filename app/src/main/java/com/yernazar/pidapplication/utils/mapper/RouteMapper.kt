@@ -1,7 +1,7 @@
 package com.yernazar.pidapplication.utils.mapper
 
 import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
-import org.jguniverse.pidapplicationgm.repo.model.Route
+import com.yernazar.pidapplication.data.repository.model.Route
 
 object RouteMapper {
     fun toRoute(list: RouteAndNextArrive) : Route {

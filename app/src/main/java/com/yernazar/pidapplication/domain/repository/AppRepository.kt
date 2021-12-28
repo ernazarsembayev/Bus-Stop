@@ -1,10 +1,9 @@
 package com.yernazar.pidapplication.domain.repository
 
-import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
-import org.jguniverse.pidapplicationgm.repo.model.Route
-import org.jguniverse.pidapplicationgm.repo.model.Shape
-import org.jguniverse.pidapplicationgm.repo.model.Stop
-import org.jguniverse.pidapplicationgm.repo.model.Trip
+import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.model.Route
+import com.yernazar.pidapplication.data.repository.model.ShapeOld
+import com.yernazar.pidapplication.data.repository.model.Stop
 
 interface AppRepository {
 
@@ -12,9 +11,9 @@ interface AppRepository {
 
     suspend fun getRouteById(routeId: String): Route?
 
-    suspend fun getTripByRouteId(routeId: String): Trip?
+    suspend fun getTripByRouteId(routeId: String): RouteShapeVehicles?
 
-    suspend fun getShapesById(shapeId: String): List<Shape>
+    suspend fun getShapesById(shapeId: String): List<ShapeOld>
 
     suspend fun getAllStops(): List<Stop>
 
