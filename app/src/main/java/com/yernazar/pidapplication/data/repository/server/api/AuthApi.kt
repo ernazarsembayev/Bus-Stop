@@ -13,10 +13,10 @@ import retrofit2.http.POST
 
 interface AuthApi {
 
-    @POST("/signin")
+    @POST("signin")
     suspend fun signIn(@Body userSignIn: UserSignIn): Response<Token>
 
-    @POST("/signup")
+    @POST("signup")
     suspend fun signUp(@Body userSignUp: UserSignUp) : Response<Unit>
 
     companion object {

@@ -33,10 +33,11 @@ class SignUpFragment : Fragment() {
 
             val name = binding.editName.editText?.text.toString()
             val username = binding.editEmail.editText?.text.toString()
+            val email = binding.editEmail.editText?.text.toString()
             val password = binding.editPassword.editText?.text.toString()
 
-            if ( username.isNotBlank() && password.isNotBlank() ) {
-                val user = UserSignUp(name, username, password)
+            if (username.isNotBlank() && password.isNotBlank()) {
+                val user = UserSignUp(name, username, password, email)
 
                 viewModel.onSignUp(user)
             }

@@ -55,6 +55,4 @@ class ServerCommunicator {
         val authApi = AuthApi.create()
         return authApi.signUp(userSignUp)
     }
-
-
 }
