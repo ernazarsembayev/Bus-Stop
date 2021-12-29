@@ -4,24 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.presentation.adapter.RoutesAdapter
 import com.yernazar.pidapplication.databinding.FragmentStopBinding
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
 import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.utils.config.Config
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class StopFragment(onRouteSelectListener: OnRouteSelectListener) : Fragment() {
+class StopFragment : BaseFragment(), OnRouteSelectListener {
 
     private lateinit var binding: FragmentStopBinding
     private lateinit var recyclerView: RecyclerView
-    private var routesAdapter = RoutesAdapter(onRouteSelectListener)
-    val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
+    private var routesAdapter = RoutesAdapter(this)
+    override val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
+    override val name = Config.stopFragmentName
 
-    private val mViewModel: SharedViewModel by sharedViewModel()
+    private val viewModel: SharedViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,8 +44,12 @@ class StopFragment(onRouteSelectListener: OnRouteSelectListener) : Fragment() {
         recyclerView.layoutManager = llm
         recyclerView.adapter = routesAdapter
 
-        mViewModel.liveDataStopRoutes.observe( viewLifecycleOwner, {
+        viewModel.liveDataStopRoutes.observe( viewLifecycleOwner, {
             routesAdapter.setRoutes(it)
         })
+    }
+
+    override fun onRouteSelect(route: Route) {
+        viewModel.onRouteSelect(route)
     }
 }

@@ -50,14 +50,9 @@ class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : Recycler
 
         val routeNextArrive = routes?.get(position)
 
-        val sysTime = System.currentTimeMillis()
-
-//        Log.e("")
-
         if (routeNextArrive != null) {
-//            val dateString = TimeUnit.MILLISECONDS.toMinutes(routeNextArrive.nextArrive - sysTime)
             holder.routeNameTv.text = routeNextArrive.longName
-//            holder.nextInTv.text = "$dateString mins"
+//            holder.nextInTv.text = routeNextArrive.
         }
 
     }

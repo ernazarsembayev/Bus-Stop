@@ -7,8 +7,9 @@ import com.google.maps.android.clustering.ClusterItem
 
 @Entity
 data class Vehicle(
-    @PrimaryKey(autoGenerate = true)
-        val id: Int,
+
+    @PrimaryKey
+    val id: String,
     val tripId: String, // Trip Entity
     val originRouteName: String,
     val cisLineId: String,
@@ -23,11 +24,12 @@ data class Vehicle(
     val delayLastStop: Int,
     val isCanceled: Boolean,
     val lastStopId: String, // (previous stop) Stop Entity
-    val lastStopDeparture: Long, // (previous stop)
+    val lastStopDeparture: String, // (previous stop)
     val nextStopId: String, // Stop Entity
-    val nextStopArrival: Long,
+    val nextStopArrival: String,
     val vehicleType: VehicleType,
-    val allPosition: Int
+    val allPosition: Int,
+
 ) : ClusterItem {
     override fun getPosition(): LatLng =
         LatLng(lat, lon)

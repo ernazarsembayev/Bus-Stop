@@ -10,19 +10,14 @@ import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
 import com.yernazar.pidapplication.data.repository.model.Route
 
-class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
+class SearchResultAdapter(val onRouteSelectListener: OnRouteSelectListener) : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
 
-    private var routes = emptyList<Route>()
-    private lateinit var listener: OnRouteSelectListener
+    private var routes: List<Route>? = emptyList()
 
     @SuppressLint("NotifyDataSetChanged")
     fun setRoutes(routes : List<Route>){
         this.routes = routes
         notifyDataSetChanged()
-    }
-
-    fun setListener(listener: OnRouteSelectListener){
-        this.listener = listener
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
@@ -34,9 +29,11 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>
 
         override fun onClick(v: View?) {
             val position = layoutPosition
-            routes[position]
+            routes?.get(position)
             if (position != RecyclerView.NO_POSITION) {
-                listener.onRouteSelect(routes[position])
+                routes?.let {
+                    onRouteSelectListener.onRouteSelect(routes!![position])
+                }
             }
         }
     }
@@ -48,13 +45,15 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val route = routes[position]
+        val route = routes?.get(position)
 
-        holder.textView.text = route.longName
+        if (route != null) {
+            holder.textView.text = route.longName
+        }
 
     }
 
     override fun getItemCount(): Int {
-        return routes.size
+        return routes?.size ?:0
     }
 }

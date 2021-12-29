@@ -4,7 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.android.gms.maps.model.LatLng
 import com.google.gson.annotations.SerializedName
-import com.google.maps.android.clustering.ClusterItem
+import com.yernazar.pidapplication.R
+import com.yernazar.pidapplication.utils.BaseClusterItem
 
 @Entity
 data class Stop(
@@ -23,7 +24,7 @@ data class Stop(
     val wheelchair: Int,
     @SerializedName("parentStation")
     val parentLocation: String
-    ) : ClusterItem {
+    ) : BaseClusterItem() {
 
     override fun getPosition(): LatLng =
             LatLng(lat, lon)
@@ -33,4 +34,10 @@ data class Stop(
 
     override fun getSnippet(): String =
             name
+
+    override val drawable: Int
+        get() = R.drawable.ic_baseline_directions_bus_24
+
+    override val color: Int
+        get() = R.color.black
 }
