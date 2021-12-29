@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -29,7 +28,6 @@ import com.yernazar.pidapplication.databinding.ActivityMapsBinding
 import com.yernazar.pidapplication.domain.SharedViewModel
 import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.presentation.fragment.*
-import com.yernazar.pidapplication.presentation.loginView.presentation.LoginActivity
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -204,8 +202,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.authorization -> {
+                    viewModel.stopUpdateVehicles()
                     val loginIntent = Intent(this, LoginActivity::class.java)
                     startActivity(loginIntent)
+                    binding.drawerLayout.closeDrawer(GravityCompat.END)
                 }
                 R.id.item2 -> Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
             }

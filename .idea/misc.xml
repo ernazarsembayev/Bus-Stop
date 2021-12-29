@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ye.sembayev/AndroidStudioProjects/PIDApplication/app/src/main/res/drawable/ic_vehicle_point.xml" value="0.35625" />
+        <entry key="..\:/Users/ye.sembayev/AndroidStudioProjects/PIDApplication/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/ye.sembayev/AndroidStudioProjects/PIDApplication/app/src/main/res/layout/activity_maps.xml" value="0.15462962962962962" />
+        <entry key="..\:/Users/ye.sembayev/AndroidStudioProjects/PIDApplication/app/src/main/res/layout/fragment_login.xml" value="0.21" />
+        <entry key="..\:/Users/ye.sembayev/AndroidStudioProjects/PIDApplication/app/src/main/res/layout/fragment_signin.xml" value="0.30117753623188404" />
         <entry key="..\:/Users/ye.sembayev/AndroidStudioProjects/PIDApplication/app/src/main/res/layout/fragment_trip.xml" value="0.1852355072463768" />
       </map>
     </option>

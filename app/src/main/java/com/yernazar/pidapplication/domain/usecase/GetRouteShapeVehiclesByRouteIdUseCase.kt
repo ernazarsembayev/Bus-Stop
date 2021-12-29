@@ -1,6 +1,6 @@
 package com.yernazar.pidapplication.domain.usecase
 
-import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
 import com.yernazar.pidapplication.domain.repository.AppRepository
 
 class GetRouteShapeVehiclesByRouteIdUseCase(private val appRepository: AppRepository) {

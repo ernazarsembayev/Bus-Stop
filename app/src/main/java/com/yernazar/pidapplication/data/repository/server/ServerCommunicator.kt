@@ -1,12 +1,12 @@
 package com.yernazar.pidapplication.data.repository.server
 
+import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.data.repository.server.api.RouteApi
 import com.yernazar.pidapplication.data.repository.server.api.ShapeApi
 import com.yernazar.pidapplication.data.repository.server.api.StopApi
-import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
-import com.yernazar.pidapplication.data.repository.model.Route
-import com.yernazar.pidapplication.data.repository.model.ShapeOld
-import com.yernazar.pidapplication.data.repository.model.Stop
+import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.server.api.AuthApi
+import com.yernazar.pidapplication.data.repository.server.response.tokenResponse.Token
 import retrofit2.Response
 
 class ServerCommunicator {
@@ -45,5 +45,16 @@ class ServerCommunicator {
         val stopApi = StopApi.create()
         return stopApi.getRoutes(stopUid)
     }
+
+    suspend fun signIn(userSignIn: UserSignIn): Response<Token> {
+        val authApi = AuthApi.create()
+        return authApi.signIn(userSignIn)
+    }
+
+    suspend fun signUp(userSignUp: UserSignUp): Response<Unit> {
+        val authApi = AuthApi.create()
+        return authApi.signUp(userSignUp)
+    }
+
 
 }

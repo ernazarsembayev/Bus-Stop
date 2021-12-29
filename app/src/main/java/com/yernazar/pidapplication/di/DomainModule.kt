@@ -29,4 +29,12 @@ val domainModule = module {
         GetRouteShapeVehiclesByRouteIdUseCase(appRepository =  get())
     }
 
+    factory {
+        SignInUseCase(appRepository =  get())
+    }
+
+    factory {
+        SignUpUseCase(appRepository =  get())
+    }
+
 }
