@@ -1,8 +1,6 @@
 package com.yernazar.pidapplication.domain
 
 import android.app.Application
-import android.graphics.Bitmap
-import android.os.Handler
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,11 +14,11 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
 import com.yernazar.pidapplication.R
-import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
 import com.yernazar.pidapplication.domain.usecase.*
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Stop
-import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.Vehicle
+import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.Vehicle
 import com.yernazar.pidapplication.utils.BaseClusterItem
 import com.yernazar.pidapplication.utils.IconRenderer
 import com.yernazar.pidapplication.utils.config.Config.SERVER_QUERY_TIME
@@ -148,7 +146,7 @@ class SharedViewModel(application: Application)
         }
     }
 
-    private fun stopUpdateVehicles() {
+    fun stopUpdateVehicles() {
         job?.cancel()
         job = null
     }

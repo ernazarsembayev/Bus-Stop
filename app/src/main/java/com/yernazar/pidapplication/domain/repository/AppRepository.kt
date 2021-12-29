@@ -1,9 +1,8 @@
 package com.yernazar.pidapplication.domain.repository
 
-import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
-import com.yernazar.pidapplication.data.repository.model.Route
-import com.yernazar.pidapplication.data.repository.model.ShapeOld
-import com.yernazar.pidapplication.data.repository.model.Stop
+import com.yernazar.pidapplication.data.repository.model.*
+import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.server.response.tokenResponse.Token
 
 interface AppRepository {
 
@@ -18,5 +17,9 @@ interface AppRepository {
     suspend fun getAllStops(): List<Stop>
 
     suspend fun getRouteNextArrive(stopUid: String): List<Route>
+
+    suspend fun signIn(userSignIn: UserSignIn): Token
+
+    suspend fun signUp(userSignUp: UserSignUp): Boolean
 
 }

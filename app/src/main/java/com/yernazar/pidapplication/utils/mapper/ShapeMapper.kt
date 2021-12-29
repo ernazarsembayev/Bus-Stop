@@ -1,6 +1,6 @@
 package com.yernazar.pidapplication.utils.mapper
 
-import com.yernazar.pidapplication.data.repository.server.shapeResponse.ShapeResponse
+import com.yernazar.pidapplication.data.repository.server.response.shapeResponse.ShapeResponse
 import com.yernazar.pidapplication.data.repository.model.ShapeOld
 
 object ShapeMapper {
