@@ -1,26 +1,30 @@
 package com.yernazar.pidapplication.domain
 
 import android.app.Application
-import androidx.core.content.ContextCompat
+import android.graphics.Bitmap
+import android.os.Handler
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.Polyline
+import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.RouteShapeVehicles
 import com.yernazar.pidapplication.domain.usecase.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Stop
-import com.yernazar.pidapplication.data.repository.model.Vehicle
-import com.yernazar.pidapplication.utils.BitmapHelper
+import com.yernazar.pidapplication.data.repository.server.routeShapeTripsResponse.Vehicle
+import com.yernazar.pidapplication.utils.BaseClusterItem
 import com.yernazar.pidapplication.utils.IconRenderer
+import com.yernazar.pidapplication.utils.config.Config.SERVER_QUERY_TIME
+import kotlinx.coroutines.*
 import org.koin.core.component.inject
 
 class SharedViewModel(application: Application)
@@ -28,7 +32,7 @@ class SharedViewModel(application: Application)
 
     private val getRouteByNameLikeUseCase: GetRouteByNameLikeUseCase by inject()
     private val getRouteNextArriveUseCase: GetRouteNextArriveUseCase by inject()
-    private val getTripByRouteIdUseCase: GetTripByRouteIdUseCase by inject()
+    private val mGetRouteShapeVehiclesByRouteIdUseCase: GetRouteShapeVehiclesByRouteIdUseCase by inject()
     private val getShapesByIdUseCase: GetShapesByIdUseCase by inject()
     private val getRouteByIdUseCase: GetRouteByIdUseCase by inject()
     private val getAllStopsUseCase: GetAllStopsUseCase by inject()
@@ -38,7 +42,7 @@ class SharedViewModel(application: Application)
     private val _liveDataPolyline = MutableLiveData<Polyline>()
     private val _liveDataBottomSheetState = MutableLiveData<Int>()
     private val _liveDataStop = MutableLiveData<Stop>()
-    private val _liveDataTrip = MutableLiveData<RouteShapeVehicles>()
+    private val _liveDataRouteShapeVehicles = MutableLiveData<RouteShapeVehicles>()
     private val _liveDataRoute = MutableLiveData<Route>()
     private val _liveDataStopRoutes = MutableLiveData<List<Route>>()
     private val _liveDataSearchRoute = MutableLiveData<List<Route>>()
@@ -46,7 +50,7 @@ class SharedViewModel(application: Application)
 
     val liveDataBottomSheetState: LiveData<Int> = _liveDataBottomSheetState
     val liveDataStop: LiveData<Stop> = _liveDataStop
-    val liveDataTrip: LiveData<RouteShapeVehicles> = _liveDataTrip
+    val liveDataRouteShapeVehicles: LiveData<RouteShapeVehicles> = _liveDataRouteShapeVehicles
     val liveDataRoute: LiveData<Route> = _liveDataRoute
     val liveDataStopRoutes: LiveData<List<Route>> = _liveDataStopRoutes
     val liveDataSearchRoute: LiveData<List<Route>> = _liveDataSearchRoute
@@ -54,11 +58,14 @@ class SharedViewModel(application: Application)
 
     fun onRouteSelect(route: Route) {
         CoroutineScope(Dispatchers.Default).launch {
+            Log.e("route uid", route.uid)
 
-            val routeShapeTrips = getTripByRouteIdUseCase.execute(route.uid)
+            stopUpdateVehicles()
+
+            val routeShapeTrips = mGetRouteShapeVehiclesByRouteIdUseCase.execute(route.uid)
 
             routeShapeTrips?.let {
-                _liveDataTrip.postValue(
+                _liveDataRouteShapeVehicles.postValue(
                     it
                 )
 
@@ -67,11 +74,21 @@ class SharedViewModel(application: Application)
                 )
 
                 val vehicles = it.vehicles
-//                addVehiclesPoint(mMap, vehicles)
-//                addVehiclesPointSimple(mMap, vehicles)
+
+                vehicles?.let {
+                    if (vehicles.isNotEmpty()) {
+                        CoroutineScope(Dispatchers.Main).launch {
+
+                            addPoints(mMap, vehicles)
+                            startUpdateVehicles(routeUid = route.uid)
+
+                        }
+                    }
+                }
+
                 val shapes = it.routeShape
 
-                if (shapes.isNotEmpty()) {
+                shapes?.let {
 
                     val polylineOptions = PolylineOptions().clickable(true)
                     for (shape in shapes) {
@@ -79,6 +96,8 @@ class SharedViewModel(application: Application)
                     }
 
                     CoroutineScope(Dispatchers.Main).launch {
+
+
                         _liveDataPolyline.value?.remove()
                         val polyline = mMap.addPolyline(polylineOptions)
                         polyline.tag = "route"
@@ -86,6 +105,7 @@ class SharedViewModel(application: Application)
                         polyline.width = 12.toFloat()
                         _liveDataPolyline.setValue(polyline)
                     }
+
                 }
             }
         }
@@ -102,6 +122,35 @@ class SharedViewModel(application: Application)
             }
         }
         _liveDataSearchRoute.value = emptyList()
+    }
+
+    private val scope = CoroutineScope(Dispatchers.Default) // could also use an other scope such as viewModelScope if available
+    private var job: Job? = null
+
+    private fun startUpdateVehicles(routeUid: String) {
+        stopUpdateVehicles()
+        job = scope.launch {
+            while(true) {
+                val routeShapeTrips = mGetRouteShapeVehiclesByRouteIdUseCase.execute(routeUid)
+
+                routeShapeTrips?.let {
+
+                    if (!it.vehicles.isNullOrEmpty()) {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            addPoints(mMap, it.vehicles)
+                        }
+                    }
+
+                }
+
+                delay(SERVER_QUERY_TIME)
+            }
+        }
+    }
+
+    private fun stopUpdateVehicles() {
+        job?.cancel()
+        job = null
     }
 
     fun onMapReady(googleMap: GoogleMap) {
@@ -121,38 +170,41 @@ class SharedViewModel(application: Application)
 
         mMap.setOnPolylineClickListener(this)
 
-        addStops(mMap)
+
+        CoroutineScope(Dispatchers.Default).launch {
+            val stops = getAllStopsUseCase.execute()
+
+            if (stops.isNotEmpty()) {
+                CoroutineScope(Dispatchers.Main).launch {
+                    addPoints(mMap, stops)
+                }
+            }
+
+        }
     }
 
-    private fun addStops(map: GoogleMap) {
+    private fun addPoints(map: GoogleMap, points: List<BaseClusterItem>) {
         // Create the ClusterManager class and set the custom renderer
-        val clusterManager = ClusterManager<Stop>(getContext(), map)
+        val clusterManager = ClusterManager<BaseClusterItem>(getContext(), map)
         clusterManager.renderer =
             IconRenderer(
                 getContext(),
                 map,
                 clusterManager,
-                R.drawable.ic_baseline_directions_bus_24,
-                R.color.black
+                points[0].drawable,
+                points[0].color
             )
 
         // Set custom info window adapter
         //clusterManager.markerCollection.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
 
         // Add the places to the ClusterManager
-        CoroutineScope(Dispatchers.Default).launch {
-            val stops = getAllStopsUseCase.execute()
-            if (stops.isNotEmpty()) {
-                withContext(Dispatchers.Main) {
-                    clusterManager.addItems(stops)
-                    clusterManager.cluster()
-                }
-            }
-        }
+        clusterManager.addItems(points)
+        clusterManager.cluster()
 
         // Show polygon
-        clusterManager.setOnClusterItemClickListener { stop ->
-            onClusterStopItemClick(stop)
+        clusterManager.setOnClusterItemClickListener { item ->
+            onClusterItemClick(item)
             return@setOnClusterItemClickListener false
         }
 
@@ -173,94 +225,17 @@ class SharedViewModel(application: Application)
         }
     }
 
-    private fun addVehiclesPointSimple(map: GoogleMap, vehicles: List<Vehicle>) {
-//        vehicles.forEach { vehicle ->  map.addMarker(
-//                MarkerOptions().position(vehicle.position)
-//                               .title(vehicle.title)
-//
-//        )}
-
-        for (v in vehicles) {
-            map.addMarker(
-                MarkerOptions()
-                        .position(v.position)
-                        .title(v.title)
-                        .icon(BitmapHelper.vectorToBitmap(getContext(), R.drawable.ic_vehicle_point,  ContextCompat.getColor(getContext(),
-                                R.color.black
-                        )))
-            )
-
-        }
-
-
-    }
-
-
-    private fun addVehiclesPoint(map: GoogleMap, vehicles: List<Vehicle>) {
-        // Create the ClusterManager class and set the custom renderer
-        val clusterManager = ClusterManager<Vehicle>(getContext(), map)
-        clusterManager.renderer =
-            IconRenderer(
-                getContext(),
-                map,
-                clusterManager,
-                R.drawable.ic_vehicle_point,
-                R.color.black
-            )
-
-        // Set custom info window adapter
-        //clusterManager.markerCollection.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
-
-        // Add the places to the ClusterManager
-        CoroutineScope(Dispatchers.Default).launch {
-            val stops = getAllStopsUseCase.execute()
-            if (stops.isNotEmpty()) {
-                withContext(Dispatchers.Main) {
-                    clusterManager.addItems(vehicles)
-                    clusterManager.cluster()
+    private fun <T : ClusterItem> onClusterItemClick(item: T) {
+        // On cluster select
+        when (item) {
+            is Stop -> {
+                _liveDataStop.value = item
+                CoroutineScope(Dispatchers.Default).launch {
+                    _liveDataStopRoutes.postValue(getRouteNextArriveUseCase.execute(stopUid = item.uid))
                 }
             }
+            is Vehicle -> _liveDataVehicle.value = item
         }
-
-        // Show polygon
-        clusterManager.setOnClusterItemClickListener { vehicle ->
-            onClusterVehicleItemClick(vehicle)
-            return@setOnClusterItemClickListener false
-        }
-
-        // When the camera starts moving, change the alpha value of the marker to translucent
-        map.setOnCameraMoveStartedListener {
-            clusterManager.markerCollection.markers.forEach { it.alpha = 0.3f }
-            clusterManager.clusterMarkerCollection.markers.forEach { it.alpha = 0.3f }
-        }
-
-        map.setOnCameraIdleListener {
-            // When the camera stops moving, change the alpha value back to opaque
-            clusterManager.markerCollection.markers.forEach { it.alpha = 1.0f }
-            clusterManager.clusterMarkerCollection.markers.forEach { it.alpha = 1.0f }
-
-            // Call clusterManager.onCameraIdle() when the camera stops moving so that re-clustering
-            // can be performed when the camera stops moving
-            clusterManager.onCameraIdle()
-        }
-    }
-
-    private fun drawVehicles() {}
-
-    private fun onClusterStopItemClick(stop: Stop) {
-        // On bus stop select
-        _liveDataStop.value = stop
-        CoroutineScope(Dispatchers.Default).launch {
-            _liveDataStopRoutes.postValue(getRouteNextArriveUseCase.execute(stopUid = stop.uid))
-        }
-    }
-
-    private fun onClusterVehicleItemClick(vehicle: Vehicle) {
-        // On bus stop select
-        _liveDataVehicle.value = vehicle
-//        CoroutineScope(Dispatchers.Default).launch {
-//            _liveDataStopRoutes.postValue(getRouteNextArriveUseCase.execute(stopUid = stop.uid))
-//        }
     }
 
     fun setBottomSheetState(newBottomSheetState: Int) {
@@ -268,6 +243,7 @@ class SharedViewModel(application: Application)
         onBottomSheetStateChanged(newBottomSheetState)
     }
 
+    // For the Google logo on map don't overlap by bottomSheet
     fun onBottomSheetStateChanged(newBottomSheetState: Int) {
         when(newBottomSheetState) {
             BottomSheetBehavior.STATE_COLLAPSED -> mMap.setPadding(0,0,0, 200)
@@ -277,5 +253,10 @@ class SharedViewModel(application: Application)
 
     override fun onPolylineClick(p0: Polyline) {
         p0.remove()
+    }
+
+    override fun onCleared() {
+        stopUpdateVehicles()
+        super.onCleared()
     }
 }

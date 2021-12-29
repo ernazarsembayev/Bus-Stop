@@ -26,7 +26,7 @@ val domainModule = module {
     }
 
     factory {
-        GetTripByRouteIdUseCase(appRepository =  get())
+        GetRouteShapeVehiclesByRouteIdUseCase(appRepository =  get())
     }
 
 }

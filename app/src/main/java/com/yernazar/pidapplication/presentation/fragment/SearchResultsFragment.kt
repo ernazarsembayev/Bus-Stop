@@ -4,26 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.databinding.FragmentSearchResultsBinding
-import com.yernazar.pidapplication.data.repository.database.AppDatabase
 import com.yernazar.pidapplication.domain.SharedViewModel
 import com.yernazar.pidapplication.presentation.adapter.SearchResultAdapter
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
+import com.yernazar.pidapplication.utils.config.Config
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class SearchResultsFragment : Fragment() {
+class SearchResultsFragment : BaseFragment(), OnRouteSelectListener {
 
-    private val mViewModel: SharedViewModel by sharedViewModel()
+    private val viewModel: SharedViewModel by sharedViewModel()
 
-    private var searchResultAdapter = SearchResultAdapter()
+    private var searchResultAdapter = SearchResultAdapter(this)
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentSearchResultsBinding
-    private var db: AppDatabase? = null
-    val bottomSheetState = BottomSheetBehavior.STATE_EXPANDED
+
+    override val bottomSheetState: Int
+        get() = BottomSheetBehavior.STATE_EXPANDED
+
+    override val name: String
+        get() = Config.searchResultsFragmentName
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,15 +48,12 @@ class SearchResultsFragment : Fragment() {
         recyclerView.layoutManager = llm
         recyclerView.adapter = searchResultAdapter
 
-        db = context?.let { AppDatabase.getInstance(it) }
-
-        mViewModel.liveDataSearchRoute.observe(viewLifecycleOwner, {
+        viewModel.liveDataSearchRoute.observe(viewLifecycleOwner, {
             searchResultAdapter.setRoutes(it)
         })
-
     }
 
-    fun setListener(listener: OnRouteSelectListener){
-        searchResultAdapter.setListener(listener)
+    override fun onRouteSelect(route: Route) {
+        viewModel.onRouteSelect(route)
     }
 }
