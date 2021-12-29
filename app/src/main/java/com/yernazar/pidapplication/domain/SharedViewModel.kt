@@ -1,14 +1,12 @@
 package com.yernazar.pidapplication.domain
 
 import android.app.Application
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MapStyleOptions
-import com.google.android.gms.maps.model.Polyline
-import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.maps.model.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.maps.android.clustering.ClusterManager
 import com.yernazar.pidapplication.R
@@ -21,6 +19,7 @@ import kotlinx.coroutines.withContext
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Stop
 import com.yernazar.pidapplication.data.repository.model.Vehicle
+import com.yernazar.pidapplication.utils.BitmapHelper
 import com.yernazar.pidapplication.utils.IconRenderer
 import org.koin.core.component.inject
 
@@ -67,7 +66,9 @@ class SharedViewModel(application: Application)
                     it.route
                 )
 
-                val vehicles = it.trips
+                val vehicles = it.vehicles
+//                addVehiclesPoint(mMap, vehicles)
+//                addVehiclesPointSimple(mMap, vehicles)
                 val shapes = it.routeShape
 
                 if (shapes.isNotEmpty()) {
@@ -171,6 +172,30 @@ class SharedViewModel(application: Application)
             clusterManager.onCameraIdle()
         }
     }
+
+    private fun addVehiclesPointSimple(map: GoogleMap, vehicles: List<Vehicle>) {
+//        vehicles.forEach { vehicle ->  map.addMarker(
+//                MarkerOptions().position(vehicle.position)
+//                               .title(vehicle.title)
+//
+//        )}
+
+        for (v in vehicles) {
+            map.addMarker(
+                MarkerOptions()
+                        .position(v.position)
+                        .title(v.title)
+                        .icon(BitmapHelper.vectorToBitmap(getContext(), R.drawable.ic_vehicle_point,  ContextCompat.getColor(getContext(),
+                                R.color.black
+                        )))
+            )
+
+        }
+
+
+    }
+
+
     private fun addVehiclesPoint(map: GoogleMap, vehicles: List<Vehicle>) {
         // Create the ClusterManager class and set the custom renderer
         val clusterManager = ClusterManager<Vehicle>(getContext(), map)

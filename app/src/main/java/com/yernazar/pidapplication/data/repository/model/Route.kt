@@ -14,7 +14,7 @@ data class Route (
         @SerializedName("shortName")
         val shortName: String,
         @SerializedName("desc")
-        val desc: String,
+        val desc: String? = "",
         @SerializedName("agency")
         val agency: String,
         @SerializedName("color")

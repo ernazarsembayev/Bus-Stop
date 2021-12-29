@@ -100,7 +100,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         })
 
 
-        populateDatabase()
+        //populateDatabase()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -319,12 +319,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         val position = Position(12,"9_6952_211202", 50.07914, 14.42059,
             1, 10.4, "U484Z2P", "U997Z2P", false)
 
-        val vehicle = Vehicle(12, "9_6952_211202", "9",
-            "", 0, 50.07914, 14.42059,
-            0, 10.4, true, 1,
-            1, 1, false, "U997Z2P",
-            System.currentTimeMillis() - 6000,  "U484Z2P",
-            System.currentTimeMillis() + 600000, VehicleType.TRAM, 0)
+//        val vehicle = Vehicle(12, "9_6952_211202", "9",
+//            "", 0, 50.07914, 14.42059,
+//            0, 10.4, true, 1,
+//            1, 1, false, "U997Z2P",
+//            System.currentTimeMillis() - 6000,  "U484Z2P",
+//            System.currentTimeMillis() + 600000, VehicleType.TRAM, 0)
 
         val stopDao = db.stopDao()
         val tripDao = db.tripDao()
@@ -341,7 +341,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             tripDao.insert(trip)
             shapeDao.insert(databaseShapes)
             routeDao.insert(route)
-            vehicleDao.insert(vehicle)
+//            vehicleDao.insert(vehicle)
             positionDao.insert(position)
         }
     }
