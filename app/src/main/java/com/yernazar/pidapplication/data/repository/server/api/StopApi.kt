@@ -35,10 +35,8 @@ interface StopApi {
 
         fun create() : StopApi {
 
-            val retrofit = Retrofit.Builder()
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(BASE_URL)
-                    .build()
+            val retrofit = BaseApi.createRetrofit(BASE_URL)
+
             return retrofit.create(StopApi::class.java)
         }
     }

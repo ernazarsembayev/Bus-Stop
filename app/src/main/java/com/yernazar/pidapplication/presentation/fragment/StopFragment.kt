@@ -21,7 +21,7 @@ class StopFragment : BaseFragment(), OnRouteSelectListener {
     private lateinit var recyclerView: RecyclerView
     private var routesAdapter = RoutesAdapter(this)
     override val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
-    override val name = Config.stopFragmentName
+    override val name = Config.STOP_FRAGMENT_NAME
 
     private val viewModel: SharedViewModel by sharedViewModel()
 

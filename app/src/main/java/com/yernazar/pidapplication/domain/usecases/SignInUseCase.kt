@@ -1,4 +1,4 @@
-package com.yernazar.pidapplication.domain.usecase
+package com.yernazar.pidapplication.domain.usecases
 
 import com.yernazar.pidapplication.data.repository.model.UserSignIn
 import com.yernazar.pidapplication.data.repository.server.response.tokenResponse.Token

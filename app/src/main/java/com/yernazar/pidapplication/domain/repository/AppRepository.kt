@@ -22,4 +22,12 @@ interface AppRepository {
 
     suspend fun signUp(userSignUp: UserSignUp): Boolean
 
+    suspend fun getFavouriteRoutes(): List<Route>
+
+    suspend fun getFavouriteRouteById(routeUid: String): Route?
+
+    suspend fun saveFavouriteRoute(route: Route)
+
+    suspend fun deleteFavouriteRoute(route: Route)
+
 }

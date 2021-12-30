@@ -87,4 +87,28 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
         return false
     }
 
+    override suspend fun getFavouriteRoutes(): List<Route> {
+        val favouriteRoutes = database.favouriteRoutesDao().getAll()
+        favouriteRoutes?.let {
+            return it
+        }
+        return emptyList()
+    }
+
+    override suspend fun getFavouriteRouteById(routeUid: String): Route? {
+        val favouriteRoute = database.favouriteRoutesDao().getById(routeUid)
+        favouriteRoute?.let {
+            return it
+        }
+        return null
+    }
+
+    override suspend fun saveFavouriteRoute(route: Route) {
+        database.favouriteRoutesDao().insert(route)
+    }
+
+    override suspend fun deleteFavouriteRoute(route: Route) {
+        database.favouriteRoutesDao().delete(route)
+    }
+
 }

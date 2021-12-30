@@ -1,6 +1,6 @@
 package com.yernazar.pidapplication.data.repository.model
 
-data class RouteAndNextArrive(
+data class RouteNextArrive(
     val uid: String,
     val longName: String,
     val shortName: String,

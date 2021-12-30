@@ -1,22 +1,36 @@
 package com.yernazar.pidapplication.presentation.fragment
 
-import android.graphics.Bitmap
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.yernazar.pidapplication.R
+import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.databinding.FragmentRouteBinding
 import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.usecases.DeleteFavouriteRoute
+import com.yernazar.pidapplication.domain.usecases.GetAllStopsUseCase
+import com.yernazar.pidapplication.domain.usecases.GetFavouriteRouteByUid
+import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRoute
 import com.yernazar.pidapplication.utils.config.Config
+import kotlinx.coroutines.*
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.core.component.inject
 
 class RouteFragment : BaseFragment() {
 
     private lateinit var binding: FragmentRouteBinding
-    override val name = Config.routeFragmentName
+    override val name = Config.ROUTE_FRAGMENT_NAME
     override val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
+
+    private val getFavouriteRouteByUid: GetFavouriteRouteByUid by inject()
+    private val deleteFavouriteRoute: DeleteFavouriteRoute by inject()
+    private val saveFavouriteRoute: SaveFavouriteRoute by inject()
+
+    private var selectedRoute: Route? = null
 
     private val mViewModel: SharedViewModel by sharedViewModel()
 
@@ -35,8 +49,46 @@ class RouteFragment : BaseFragment() {
         mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
             binding.routeShortNameTv.text = it.shortName
             binding.routeLongNameTv.text = it.longName
+
+            selectedRoute = it
         })
 
+        val sharedPreferences = requireActivity().getSharedPreferences(Config.SHARED_PREFERENCES,Context.MODE_PRIVATE)
+        if (sharedPreferences.getString(Config.SP_TOKEN, "") != "") {
+
+            binding.likeIb.visibility = View.VISIBLE
+
+            binding.likeIb.setOnClickListener{
+                selectedRoute?.let {
+
+                    CoroutineScope(Dispatchers.Default).launch {
+                        val route = getFavouriteRouteByUid.execute(it.uid)
+
+                        if (route != null) {
+                            deleteFavouriteRoute.execute(selectedRoute!!)
+                            setUnLike()
+                        } else {
+                            saveFavouriteRoute.execute(selectedRoute!!)
+                            setLike()
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+
+    private fun setLike() {
+        CoroutineScope(Dispatchers.Main).launch {
+            binding.likeIb.setImageResource(R.drawable.ic_baseline_favorite_24)
+        }
+    }
+
+    private fun setUnLike() {
+        CoroutineScope(Dispatchers.Main).launch {
+            binding.likeIb.setImageResource(R.drawable.ic_favorite_border)
+        }
     }
 
 }

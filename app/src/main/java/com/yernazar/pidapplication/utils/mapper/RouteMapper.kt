@@ -1,10 +1,10 @@
 package com.yernazar.pidapplication.utils.mapper
 
-import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
+import com.yernazar.pidapplication.data.repository.model.RouteNextArrive
 import com.yernazar.pidapplication.data.repository.model.Route
 
 object RouteMapper {
-    fun toRoute(list: RouteAndNextArrive) : Route {
+    fun toRoute(list: RouteNextArrive) : Route {
         return Route(
                 uid = list.uid,
                 longName = list.longName,

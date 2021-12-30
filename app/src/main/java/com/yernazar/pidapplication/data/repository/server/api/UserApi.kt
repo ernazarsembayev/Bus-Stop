@@ -38,10 +38,7 @@ interface UserApi {
 
         fun create() : UserApi {
 
-            val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .build()
+            val retrofit = BaseApi.createRetrofit(BASE_URL)
             return retrofit.create(UserApi::class.java)
         }
     }

@@ -26,7 +26,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="delay">Delay</string>
     <string name="bus_name">Bus name</string>
-    <string name="hint_email">User Name</string>
+    <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
     <string name="go_to_register">Go to Register</string>
@@ -34,5 +34,7 @@
     <string name="register">Register</string>
     <string name="btn_link_to_login">Already registred? Login.</string>
     <string name="login_error">Login error</string>
+    <string name="favourites">Favourites</string>
+    <string name="hint_user_name">User name</string>
 
 </resources>

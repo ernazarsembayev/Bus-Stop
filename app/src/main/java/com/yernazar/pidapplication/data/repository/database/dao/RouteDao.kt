@@ -1,7 +1,7 @@
 package com.yernazar.pidapplication.data.repository.database.dao
 
 import androidx.room.*
-import com.yernazar.pidapplication.data.repository.model.RouteAndNextArrive
+import com.yernazar.pidapplication.data.repository.model.RouteNextArrive
 import com.yernazar.pidapplication.data.repository.model.Route
 
 @Dao
@@ -36,5 +36,5 @@ interface RouteDao {
             "inner join trip on route.uid = trip.routeId " +
             "inner join vehicle on trip.uid = vehicle.tripId " +
             "where vehicle.nextStopId = :nextStopId")
-    fun getRouteNextArrive(nextStopId: String) : List<RouteAndNextArrive>
+    fun getRouteNextArrive(nextStopId: String) : List<RouteNextArrive>
 }

@@ -15,6 +15,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun shapeDao(): ShapeDao
     abstract fun vehicleDao(): VehicleDao
     abstract fun positionDao(): PositionDao
+    abstract fun favouriteRoutesDao(): FavouriteRoutesDao
 
     companion object {
         private var instance: AppDatabase? = null

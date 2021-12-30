@@ -1,4 +1,4 @@
-package com.yernazar.pidapplication.domain.usecase
+package com.yernazar.pidapplication.domain.usecases
 
 import com.yernazar.pidapplication.domain.repository.AppRepository
 import com.yernazar.pidapplication.data.repository.model.Stop

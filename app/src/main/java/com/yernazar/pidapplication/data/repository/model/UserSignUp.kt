@@ -7,7 +7,6 @@ data class UserSignUp(
     var email: String) {
 
     fun toUserLogin() = UserSignIn (
-
         usernameOrEmail = username,
         password = password
     )

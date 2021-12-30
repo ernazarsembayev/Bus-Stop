@@ -9,8 +9,8 @@ import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.UserSignIn
 import com.yernazar.pidapplication.data.repository.model.UserSignUp
 import com.yernazar.pidapplication.data.repository.server.response.tokenResponse.Token
-import com.yernazar.pidapplication.domain.usecase.SignInUseCase
-import com.yernazar.pidapplication.domain.usecase.SignUpUseCase
+import com.yernazar.pidapplication.domain.usecases.SignInUseCase
+import com.yernazar.pidapplication.domain.usecases.SignUpUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,8 +35,9 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
             val result = signInUseCase.execute(userSignIn)
             Log.e("token", result.accessToken)
             CoroutineScope(Dispatchers.Main).launch {
-                if (result.tokenType != "invalid")
+                if (result.tokenType != "invalid") {
                     _liveDataToken.value = result
+                }
                 else {
                     Toast.makeText(getApplication(), R.string.login_error, Toast.LENGTH_SHORT)
                         .show()

@@ -123,9 +123,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (supportFragmentManager.backStackEntryCount > 0) {
                     setBottomSheetState(
                         when (supportFragmentManager.fragments[supportFragmentManager.fragments.size - 1].tag.toString()) {
-                            Config.searchResultsFragmentName -> searchResultsFragment.bottomSheetState
-                            Config.tripFragmentName -> tripFragment.bottomSheetState.run { bottomSheetBehavior.state }
-                            Config.stopFragmentName -> stopFragment.bottomSheetState.run { bottomSheetBehavior.state }
+                            Config.SEARCH_FRAGMENT_NAME -> searchResultsFragment.bottomSheetState
+                            Config.TRIP_FRAGMENT_NAME -> tripFragment.bottomSheetState.run { bottomSheetBehavior.state }
+                            Config.STOP_FRAGMENT_NAME -> stopFragment.bottomSheetState.run { bottomSheetBehavior.state }
                             else -> bottomSheetBehavior.state
                         }
                     )

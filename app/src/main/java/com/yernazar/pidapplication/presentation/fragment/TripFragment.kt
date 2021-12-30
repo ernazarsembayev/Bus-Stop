@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.databinding.FragmentTripBinding
 import com.yernazar.pidapplication.domain.SharedViewModel
@@ -17,7 +16,7 @@ class TripFragment : BaseFragment() {
 
     private lateinit var binding: FragmentTripBinding
     override val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
-    override val name = Config.tripFragmentName
+    override val name = Config.TRIP_FRAGMENT_NAME
 
     private val mViewModel: SharedViewModel by sharedViewModel()
 

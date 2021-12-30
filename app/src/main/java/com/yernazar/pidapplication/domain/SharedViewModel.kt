@@ -15,7 +15,7 @@ import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
-import com.yernazar.pidapplication.domain.usecase.*
+import com.yernazar.pidapplication.domain.usecases.*
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Stop
 import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.Vehicle

@@ -4,11 +4,19 @@ object Config {
 
     const val BASE_URL = "http://10.0.2.2:8080/"
 
-    const val SERVER_QUERY_TIME: Long = 5000
+    const val SHARED_PREFERENCES = "app_preferences"
 
-    const val searchResultsFragmentName = "SearchResultsFragment"
-    const val stopFragmentName = "StopFragment"
-    const val tripFragmentName = "TripFragment"
-    const val routeFragmentName = "RouteFragment"
+    const val SERVER_QUERY_TIME: Long = 5000
+    const val CONNECT_TIMEOUT: Long = 5
+    const val READ_TIMEOUT: Long = 5
+    const val WRITE_TIMEOUT: Long = 5
+
+    const val SEARCH_FRAGMENT_NAME = "SearchResultsFragment"
+    const val STOP_FRAGMENT_NAME = "StopFragment"
+    const val TRIP_FRAGMENT_NAME = "TripFragment"
+    const val ROUTE_FRAGMENT_NAME = "RouteFragment"
+
+
+    const val SP_TOKEN = "token"
 
 }
