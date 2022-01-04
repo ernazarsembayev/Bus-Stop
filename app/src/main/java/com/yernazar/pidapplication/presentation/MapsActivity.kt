@@ -12,6 +12,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.domain.usecases.ClearFavouritesUseCase
 import com.yernazar.pidapplication.presentation.fragment.*
 import com.yernazar.pidapplication.utils.config.Config.SP_IS_AUTH
+import com.yernazar.pidapplication.utils.config.Config.SP_USER_NAME
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -207,8 +209,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val isAuth = sharedPreferences.getBoolean(SP_IS_AUTH, false)
 
+        if (isAuth)
+            binding.navView.findViewById<TextView>(R.id.drawerHeaderTitle).text =
+                sharedPreferences.getString(SP_USER_NAME, "")
+
         binding.navView.menu.findItem(R.id.authorization).isVisible = !isAuth
         binding.navView.menu.findItem(R.id.logout).isVisible = isAuth
+        binding.navView.menu.findItem(R.id.favourite_routes).isVisible = isAuth
 
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
@@ -223,6 +230,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     favouriteRoutesFragment.show(
                         supportFragmentManager, "FavouriteRoutesFragment"
                     )
+                    binding.drawerLayout.closeDrawer(GravityCompat.END)
                 }
                 R.id.logout -> {
 

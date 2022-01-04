@@ -12,6 +12,7 @@ import com.yernazar.pidapplication.presentation.fragment.SignUpFragment
 import com.yernazar.pidapplication.utils.config.Config.SHARED_PREFERENCES
 import com.yernazar.pidapplication.utils.config.Config.SP_IS_AUTH
 import com.yernazar.pidapplication.utils.config.Config.SP_TOKEN
+import com.yernazar.pidapplication.utils.config.Config.SP_USER_NAME
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -34,7 +35,8 @@ class LoginActivity : AppCompatActivity() {
 
             val sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.putString(SP_TOKEN, it.accessToken)
+            editor.putString(SP_TOKEN, it.jwtAuthResponse.accessToken)
+            editor.putString(SP_USER_NAME, it.user.name)
             editor.putBoolean(SP_IS_AUTH, true)
             editor.apply()
 

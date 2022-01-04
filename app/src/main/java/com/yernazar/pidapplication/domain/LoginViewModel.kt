@@ -9,6 +9,7 @@ import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.UserSignIn
 import com.yernazar.pidapplication.data.repository.model.UserSignUp
 import com.yernazar.pidapplication.data.repository.server.response.loginResponse.JwtAuthResponse
+import com.yernazar.pidapplication.data.repository.server.response.loginResponse.LoginResponse
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRoutesUseCase
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteTripsUseCase
 import com.yernazar.pidapplication.domain.usecases.SignInUseCase
@@ -26,11 +27,11 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     private val saveFavouriteRoutesUseCase: SaveFavouriteRoutesUseCase by inject()
     private val saveFavouriteTripsUseCase: SaveFavouriteTripsUseCase by inject()
 
-    private val _liveDataToken = MutableLiveData<JwtAuthResponse>()
+    private val _liveDataToken = MutableLiveData<LoginResponse>()
     private val _liveDataShowSignUp = MutableLiveData<Unit>()
     private val _liveDataShowLogIn = MutableLiveData<Unit>()
 
-    val liveDataToken: LiveData<JwtAuthResponse> = _liveDataToken
+    val liveDataToken: LiveData<LoginResponse> = _liveDataToken
     val liveDataShowSignUp: LiveData<Unit> = _liveDataShowSignUp
     val liveDataShowLogIn: LiveData<Unit> = _liveDataShowLogIn
 
@@ -49,7 +50,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                 }
 
                 CoroutineScope(Dispatchers.Main).launch {
-                        _liveDataToken.value = result.jwtAuthResponse
+                        _liveDataToken.value = result
                 }
 
             } catch (e: Exception) {

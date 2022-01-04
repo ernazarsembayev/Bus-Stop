@@ -18,6 +18,7 @@ object Config {
 
 
     const val SP_TOKEN = "token"
+    const val SP_USER_NAME = "user_name"
     const val SP_IS_AUTH = "is_auth"
 
 }
