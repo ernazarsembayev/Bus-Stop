@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.databinding.ActivityLoginBinding
-import com.yernazar.pidapplication.domain.LoginViewModel
+import com.yernazar.pidapplication.domain.LoginSharedViewModel
 import com.yernazar.pidapplication.presentation.fragment.LoginFragment
 import com.yernazar.pidapplication.presentation.fragment.SignUpFragment
 import com.yernazar.pidapplication.utils.config.Config.SHARED_PREFERENCES
@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
-    private val viewModel by viewModel<LoginViewModel>()
+    private val viewModel by viewModel<LoginSharedViewModel>()
 
     private val loginFragment: LoginFragment by inject()
     private val mSignUpFragment: SignUpFragment by inject()

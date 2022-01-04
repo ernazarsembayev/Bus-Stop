@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.yernazar.pidapplication.data.repository.model.UserSignUp
 import com.yernazar.pidapplication.databinding.FragmentSignupBinding
-import com.yernazar.pidapplication.domain.LoginViewModel
+import com.yernazar.pidapplication.domain.LoginSharedViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SignUpFragment : Fragment() {
@@ -15,7 +15,7 @@ class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignupBinding
 
-    private val viewModel by sharedViewModel<LoginViewModel>()
+    private val viewModel by sharedViewModel<LoginSharedViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

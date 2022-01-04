@@ -5,7 +5,6 @@ import com.yernazar.pidapplication.utils.config.Config.READ_TIMEOUT
 import com.yernazar.pidapplication.utils.config.Config.WRITE_TIMEOUT
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.SocketTimeoutException

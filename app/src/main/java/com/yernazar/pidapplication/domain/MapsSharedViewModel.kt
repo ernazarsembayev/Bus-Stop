@@ -26,7 +26,7 @@ import com.yernazar.pidapplication.utils.config.Config.SERVER_QUERY_TIME
 import kotlinx.coroutines.*
 import org.koin.core.component.inject
 
-class SharedViewModel(application: Application)
+class MapsSharedViewModel(application: Application)
     : BaseViewModel(application), GoogleMap.OnPolylineClickListener {
 
     private val getRouteByNameLikeUseCase: GetRouteByNameLikeUseCase by inject()
@@ -36,6 +36,8 @@ class SharedViewModel(application: Application)
     private val getFavouriteRoutes: GetFavouriteRoutes by inject()
 
     private lateinit var mMap: GoogleMap
+    private lateinit var clusterManagerVehicle: ClusterManager<BaseClusterItem>
+    private lateinit var clusterManagerStop: ClusterManager<BaseClusterItem>
 
     private val _liveDataPolyline = MutableLiveData<Polyline>()
     private val _liveDataBottomSheetState = MutableLiveData<Int>()
@@ -79,7 +81,7 @@ class SharedViewModel(application: Application)
                     if (vehicles.isNotEmpty()) {
                         CoroutineScope(Dispatchers.Main).launch {
 
-                            addPoints(mMap, vehicles)
+                            addPoints(clusterManagerVehicle, vehicles)
                             startUpdateVehicles(routeUid = route.uid)
 
                         }
@@ -143,7 +145,8 @@ class SharedViewModel(application: Application)
 
                     if (!it.vehicles.isNullOrEmpty()) {
                         CoroutineScope(Dispatchers.Main).launch {
-                            addPoints(mMap, it.vehicles)
+                            clusterManagerVehicle.clearItems()
+                            addPoints(clusterManagerVehicle, it.vehicles)
                         }
                     }
 
@@ -161,6 +164,9 @@ class SharedViewModel(application: Application)
 
     fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+        clusterManagerVehicle = ClusterManager<BaseClusterItem>(getContext(), mMap)
+        clusterManagerStop = ClusterManager<BaseClusterItem>(getContext(), mMap)
 
         mMap.setPadding(0,0,0, 200)
 
@@ -182,20 +188,19 @@ class SharedViewModel(application: Application)
 
             if (stops.isNotEmpty()) {
                 CoroutineScope(Dispatchers.Main).launch {
-                    addPoints(mMap, stops)
+                    addPoints(clusterManagerStop, stops)
                 }
             }
 
         }
     }
 
-    private fun addPoints(map: GoogleMap, points: List<BaseClusterItem>) {
+    private fun addPoints(clusterManager: ClusterManager<BaseClusterItem>, points: List<BaseClusterItem>) {
         // Create the ClusterManager class and set the custom renderer
-        val clusterManager = ClusterManager<BaseClusterItem>(getContext(), map)
         clusterManager.renderer =
             IconRenderer(
                 getContext(),
-                map,
+                mMap,
                 clusterManager,
                 points[0].drawable,
                 points[0].color
@@ -215,12 +220,12 @@ class SharedViewModel(application: Application)
         }
 
         // When the camera starts moving, change the alpha value of the marker to translucent
-        map.setOnCameraMoveStartedListener {
+        mMap.setOnCameraMoveStartedListener {
             clusterManager.markerCollection.markers.forEach { it.alpha = 0.3f }
             clusterManager.clusterMarkerCollection.markers.forEach { it.alpha = 0.3f }
         }
 
-        map.setOnCameraIdleListener {
+        mMap.setOnCameraIdleListener {
             // When the camera stops moving, change the alpha value back to opaque
             clusterManager.markerCollection.markers.forEach { it.alpha = 1.0f }
             clusterManager.clusterMarkerCollection.markers.forEach { it.alpha = 1.0f }
@@ -235,6 +240,12 @@ class SharedViewModel(application: Application)
         // On cluster select
         when (item) {
             is Stop -> {
+                stopUpdateVehicles()
+                clusterManagerVehicle.clearItems()
+                clusterManagerVehicle.cluster()
+
+                _liveDataPolyline.value?.remove()
+
                 _liveDataStop.value = item
                 CoroutineScope(Dispatchers.Default).launch {
                     _liveDataStopRoutes.postValue(getRouteNextArriveUseCase.execute(stopUid = item.uid))

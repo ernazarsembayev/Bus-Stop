@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 import java.lang.Exception
 
-class LoginViewModel(application: Application) : BaseViewModel(application) {
+class LoginSharedViewModel(application: Application) : BaseViewModel(application) {
 
     private val signInUseCase: SignInUseCase by inject()
     private val signUpUseCase: SignUpUseCase by inject()

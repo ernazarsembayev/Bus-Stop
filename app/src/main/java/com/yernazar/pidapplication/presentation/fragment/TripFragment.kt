@@ -11,7 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.Trip
 import com.yernazar.pidapplication.databinding.FragmentTripBinding
-import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.MapsSharedViewModel
 import com.yernazar.pidapplication.domain.usecases.DeleteFavouriteTripUseCase
 import com.yernazar.pidapplication.domain.usecases.GetFavouriteTripByUid
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteTripUseCase
@@ -34,7 +34,7 @@ class TripFragment : BaseFragment() {
     private val saveFavouriteTripUseCase: SaveFavouriteTripUseCase by inject()
     private val deleteFavouriteTripUseCase: DeleteFavouriteTripUseCase by inject()
 
-    private val mViewModel: SharedViewModel by sharedViewModel()
+    private val mViewModelMaps: MapsSharedViewModel by sharedViewModel()
 
     private var selectedTrip: Trip? = null
     private lateinit var sharedPreferences: SharedPreferences
@@ -79,7 +79,7 @@ class TripFragment : BaseFragment() {
 
         val pattern = SimpleDateFormat("hh:mm")
 
-        mViewModel.liveDataVehicle.observe(viewLifecycleOwner, {
+        mViewModelMaps.liveDataVehicle.observe(viewLifecycleOwner, {
             binding.routeNameTv.text = it.originRouteName
             binding.directionNameTv.text = it.lastStop.name
             binding.nextBusArrivalTv.text = pattern.format(it.nextStopArrival)

@@ -10,7 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.databinding.FragmentRouteBinding
-import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.MapsSharedViewModel
 import com.yernazar.pidapplication.domain.usecases.DeleteFavouriteRouteUseCase
 import com.yernazar.pidapplication.domain.usecases.GetFavouriteRouteByUid
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRouteUseCase
@@ -33,7 +33,7 @@ class RouteFragment : BaseFragment() {
     private var selectedRoute: Route? = null
     private lateinit var sharedPreferences: SharedPreferences
 
-    private val mViewModel: SharedViewModel by sharedViewModel()
+    private val mViewModelMaps: MapsSharedViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,7 +73,7 @@ class RouteFragment : BaseFragment() {
             }
         }
 
-        mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
+        mViewModelMaps.liveDataRoute.observe(viewLifecycleOwner, {
             binding.routeShortNameTv.text = it.shortName
             binding.routeLongNameTv.text = it.longName
 

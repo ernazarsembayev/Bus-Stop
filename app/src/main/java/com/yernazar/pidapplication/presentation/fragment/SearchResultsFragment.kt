@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.data.repository.model.Route
-import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import com.yernazar.pidapplication.databinding.FragmentSearchResultsBinding
-import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.MapsSharedViewModel
 import com.yernazar.pidapplication.domain.usecases.GetFavouriteRoutes
 import com.yernazar.pidapplication.presentation.adapter.SearchResultAdapter
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
@@ -26,7 +25,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SearchResultsFragment : BaseFragment(), OnRouteSelectListener {
 
-    private val viewModel: SharedViewModel by sharedViewModel()
+    private val viewModelMaps: MapsSharedViewModel by sharedViewModel()
 
     private val getFavouriteRoutes: GetFavouriteRoutes by inject()
 
@@ -61,7 +60,7 @@ class SearchResultsFragment : BaseFragment(), OnRouteSelectListener {
         searchRecyclerView.layoutManager = llm
         searchRecyclerView.adapter = searchResultAdapter
 
-        viewModel.liveDataSearchRoute.observe(viewLifecycleOwner, {
+        viewModelMaps.liveDataSearchRoute.observe(viewLifecycleOwner, {
             searchResultAdapter.setRoutes(it)
         })
 
@@ -86,6 +85,6 @@ class SearchResultsFragment : BaseFragment(), OnRouteSelectListener {
     }
 
     override fun onRouteSelect(route: Route) {
-        viewModel.onRouteSelect(route)
+        viewModelMaps.onRouteSelect(route)
     }
 }

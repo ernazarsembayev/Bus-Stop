@@ -9,9 +9,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yernazar.pidapplication.data.repository.model.Route
-import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import com.yernazar.pidapplication.databinding.FragmentFavouriteRoutesBinding
-import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.MapsSharedViewModel
 import com.yernazar.pidapplication.presentation.adapter.SearchResultAdapter
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -20,7 +19,7 @@ class FavouriteRoutesFragment : DialogFragment(), OnRouteSelectListener {
 
     private lateinit var binding: FragmentFavouriteRoutesBinding
 
-    private val viewModel: SharedViewModel by sharedViewModel()
+    private val viewModelMaps: MapsSharedViewModel by sharedViewModel()
 
     private var searchResultAdapter = SearchResultAdapter(this)
     private lateinit var routeRecyclerView: RecyclerView
@@ -45,14 +44,14 @@ class FavouriteRoutesFragment : DialogFragment(), OnRouteSelectListener {
         routeRecyclerView.layoutManager = llm
         routeRecyclerView.adapter = searchResultAdapter
 
-        viewModel.getFavouriteRoutes()
-        viewModel.liveDataFavouriteRoutes.observe(viewLifecycleOwner, {
+        viewModelMaps.getFavouriteRoutes()
+        viewModelMaps.liveDataFavouriteRoutes.observe(viewLifecycleOwner, {
             searchResultAdapter.setRoutes(it)
         })
     }
 
     override fun onRouteSelect(route: Route) {
-        viewModel.onRouteSelect(route)
+        viewModelMaps.onRouteSelect(route)
         dismiss()
     }
 

@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.data.repository.model.Route
-import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import com.yernazar.pidapplication.presentation.adapter.RoutesAdapter
 import com.yernazar.pidapplication.databinding.FragmentStopBinding
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
-import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.MapsSharedViewModel
 import com.yernazar.pidapplication.utils.config.Config
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -24,7 +23,7 @@ class StopFragment : BaseFragment(), OnRouteSelectListener {
     override val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
     override val name = Config.STOP_FRAGMENT_NAME
 
-    private val viewModel: SharedViewModel by sharedViewModel()
+    private val viewModelMaps: MapsSharedViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,12 +44,12 @@ class StopFragment : BaseFragment(), OnRouteSelectListener {
         recyclerView.layoutManager = llm
         recyclerView.adapter = routesAdapter
 
-        viewModel.liveDataStopRoutes.observe( viewLifecycleOwner, {
+        viewModelMaps.liveDataStopRoutes.observe( viewLifecycleOwner, {
             routesAdapter.setRoutes(it)
         })
     }
 
     override fun onRouteSelect(route: Route) {
-        viewModel.onRouteSelect(route)
+        viewModelMaps.onRouteSelect(route)
     }
 }

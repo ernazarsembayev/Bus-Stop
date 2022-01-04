@@ -12,7 +12,6 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +25,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.utils.config.Config
 import com.yernazar.pidapplication.databinding.ActivityMapsBinding
-import com.yernazar.pidapplication.domain.SharedViewModel
+import com.yernazar.pidapplication.domain.MapsSharedViewModel
 import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.domain.usecases.ClearFavouritesUseCase
 import com.yernazar.pidapplication.presentation.fragment.*
@@ -51,7 +50,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val favouriteRoutesFragment: FavouriteRoutesFragment by inject()
     private val clearFavouritesUseCase: ClearFavouritesUseCase by inject()
 
-    private val viewModel by viewModel<SharedViewModel>()
+    private val viewModel by viewModel<MapsSharedViewModel>()
 
     private lateinit var searchEditText: EditText
 
