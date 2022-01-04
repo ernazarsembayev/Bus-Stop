@@ -45,6 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val tripFragment: TripFragment by inject()
     private val routeFragment: RouteFragment by inject()
     private val stopFragment: StopFragment by inject()
+    private val favouriteRoutesFragment: FavouriteRoutesFragment by inject()
     private val clearFavouritesUseCase: ClearFavouritesUseCase by inject()
 
     private val viewModel by viewModel<SharedViewModel>()
@@ -204,16 +205,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         toggle.syncState()
         val sharedPreferences = getSharedPreferences(Config.SHARED_PREFERENCES, MODE_PRIVATE)
 
-        if (!sharedPreferences.getBoolean(SP_IS_AUTH, false))
-            binding.navView.menu.findItem(R.id.logout).isVisible = false
+        val isAuth = sharedPreferences.getBoolean(SP_IS_AUTH, false)
+
+        binding.navView.menu.findItem(R.id.authorization).isVisible = !isAuth
+        binding.navView.menu.findItem(R.id.logout).isVisible = isAuth
 
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.authorization -> {
                     viewModel.stopUpdateVehicles()
                     val loginIntent = Intent(this, LoginActivity::class.java)
+                    finish()
                     startActivity(loginIntent)
                     binding.drawerLayout.closeDrawer(GravityCompat.END)
+                }
+                R.id.favourite_routes -> {
+                    favouriteRoutesFragment.show(
+                        supportFragmentManager, "FavouriteRoutesFragment"
+                    )
                 }
                 R.id.logout -> {
 

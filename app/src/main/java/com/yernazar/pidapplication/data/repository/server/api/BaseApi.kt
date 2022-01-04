@@ -15,14 +15,14 @@ class BaseApi {
 
     companion object {
 
-        fun createRetrofit(baseUrl: String): Retrofit {
+        fun createRetrofit(baseUrl: String, token: String?): Retrofit {
 
             val okHttpClientBuilder = OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .addInterceptor(Interceptor {
-                    return@Interceptor onIntercept(it)
+                    return@Interceptor onIntercept(it, token)
                 })
 
             return Retrofit.Builder()
@@ -32,14 +32,21 @@ class BaseApi {
                 .build()
         }
 
-        private fun onIntercept(chain: Interceptor.Chain): okhttp3.Response {
+        private fun onIntercept(chain: Interceptor.Chain, token: String?): okhttp3.Response {
             try {
 
                 val response = chain.proceed(chain.request())
-                response.body()?.let {
-                    val content = it.string()
-                    return response.newBuilder()
-                        .body(ResponseBody.create(it.contentType(), content)).build()
+                response.body()?.let { responseBody ->
+                    val content = responseBody.string()
+                    val responseX = response.newBuilder()
+
+                    token?.let { token ->
+                        responseX.addHeader("Authorization", "Bearer $token")
+                    }
+
+                    return responseX
+                        .body(ResponseBody.create(responseBody.contentType(), content))
+                        .build()
                 }
 
             } catch (exception: SocketTimeoutException) {

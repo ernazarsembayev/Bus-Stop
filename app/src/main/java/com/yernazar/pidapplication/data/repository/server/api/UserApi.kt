@@ -36,9 +36,9 @@ interface UserApi {
     companion object {
         private var BASE_URL = Config.BASE_URL + "api/user/"
 
-        fun create() : UserApi {
+        fun create(token: String) : UserApi {
 
-            val retrofit = BaseApi.createRetrofit(BASE_URL)
+            val retrofit = BaseApi.createRetrofit(BASE_URL, token)
             return retrofit.create(UserApi::class.java)
         }
     }

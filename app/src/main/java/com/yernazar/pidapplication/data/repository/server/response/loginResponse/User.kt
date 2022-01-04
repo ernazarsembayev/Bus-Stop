@@ -1,4 +1,4 @@
-package com.yernazar.pidapplication.data.repository.server.loginResponse
+package com.yernazar.pidapplication.data.repository.server.response.loginResponse
 
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Trip

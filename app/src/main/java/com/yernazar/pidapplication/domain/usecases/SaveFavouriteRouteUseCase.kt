@@ -5,9 +5,9 @@ import com.yernazar.pidapplication.domain.repository.AppRepository
 
 class SaveFavouriteRouteUseCase(private val appRepository: AppRepository) {
 
-    suspend fun execute(route: Route) {
+    suspend fun execute(route: Route, token: String) {
 
-        return appRepository.saveFavouriteRoute(route)
+        return appRepository.saveFavouriteRoute(route, token)
 
     }
 

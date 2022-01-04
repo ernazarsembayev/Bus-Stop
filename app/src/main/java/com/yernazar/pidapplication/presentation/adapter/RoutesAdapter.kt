@@ -8,15 +8,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.presentation.interfaces.OnRouteSelectListener
-import com.yernazar.pidapplication.data.repository.model.Route
+import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
+import java.text.SimpleDateFormat
 
 class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : RecyclerView.Adapter<RoutesAdapter.ViewHolder>() {
 
-    private var routes: List<Route>? = emptyList()
+    private var routes: List<RouteTime>? = emptyList()
 
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setRoutes(routes : List<Route>){
+    fun setRoutes(routes : List<RouteTime>){
         this.routes = routes
         notifyDataSetChanged()
     }
@@ -34,7 +35,7 @@ class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : Recycler
             routes?.get(position)
             if (position != RecyclerView.NO_POSITION) {
                 routes?.let {
-                    onRouteSelectListener.onRouteSelect(routes!![position])
+                    onRouteSelectListener.onRouteSelect(routes!![position].route)
                 }
             }
         }
@@ -50,9 +51,11 @@ class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : Recycler
 
         val routeNextArrive = routes?.get(position)
 
+        val pattern = SimpleDateFormat("hh:mm")
+
         if (routeNextArrive != null) {
-            holder.routeNameTv.text = routeNextArrive.longName
-//            holder.nextInTv.text = routeNextArrive.
+            holder.routeNameTv.text = routeNextArrive.route.longName
+            holder.nextInTv.text = pattern.format(routeNextArrive.expectedArrival)
         }
 
     }

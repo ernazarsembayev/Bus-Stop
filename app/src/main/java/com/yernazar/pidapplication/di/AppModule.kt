@@ -45,4 +45,8 @@ val appModule = module {
     factory {
         SignUpFragment()
     }
+
+    factory {
+        FavouriteRoutesFragment()
+    }
 }

@@ -18,7 +18,7 @@ interface ShapeApi {
 
         fun create() : ShapeApi {
 
-            val retrofit = BaseApi.createRetrofit(BASE_URL)
+            val retrofit = BaseApi.createRetrofit(BASE_URL, null)
 
             return retrofit.create(ShapeApi::class.java)
         }

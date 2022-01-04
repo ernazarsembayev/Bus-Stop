@@ -2,12 +2,10 @@ package com.yernazar.pidapplication.data.repository.server.api
 
 import com.yernazar.pidapplication.utils.config.Config
 import com.yernazar.pidapplication.data.repository.model.GeoPoint
-import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Stop
+import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -23,8 +21,8 @@ interface StopApi {
     fun getByNameLike(@Path("name") name: String) : Call<Set<Stop>>
 
     // get routes for given stop
-    @GET("stop/{uid}/routes")
-    suspend fun getRoutes(@Path("uid") uid: String) : Response<List<Route>>
+    @GET("stop/{uid}/routesTime")
+    suspend fun getRoutes(@Path("uid") uid: String) : Response<List<RouteTime>>
 
     // get Stops in given area restricted by 2 points
     @GET("stop/{p1}/{p2}")
@@ -35,7 +33,7 @@ interface StopApi {
 
         fun create() : StopApi {
 
-            val retrofit = BaseApi.createRetrofit(BASE_URL)
+            val retrofit = BaseApi.createRetrofit(BASE_URL, null)
 
             return retrofit.create(StopApi::class.java)
         }

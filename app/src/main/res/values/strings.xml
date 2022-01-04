@@ -37,5 +37,6 @@
     <string name="favourites">Favourites</string>
     <string name="hint_user_name">User name</string>
     <string name="logout">Log out</string>
+    <string name="favourite_routes">Favourite routes</string>
 
 </resources>

@@ -14,6 +14,7 @@ import com.yernazar.pidapplication.domain.usecases.DeleteFavouriteRouteUseCase
 import com.yernazar.pidapplication.domain.usecases.GetFavouriteRouteByUid
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRouteUseCase
 import com.yernazar.pidapplication.utils.config.Config
+import com.yernazar.pidapplication.utils.config.Config.SP_TOKEN
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -52,7 +53,8 @@ class RouteFragment : BaseFragment() {
         })
 
         val sharedPreferences = requireActivity().getSharedPreferences(Config.SHARED_PREFERENCES,Context.MODE_PRIVATE)
-        if (sharedPreferences.getString(Config.SP_TOKEN, "") != "") {
+        val token = sharedPreferences.getString(SP_TOKEN, "")
+        if (token != null && token != "") {
 
             binding.likeIb.visibility = View.VISIBLE
 
@@ -63,10 +65,10 @@ class RouteFragment : BaseFragment() {
                         val route = getFavouriteRouteByUid.execute(it.uid)
 
                         if (route != null) {
-                            deleteFavouriteRouteUseCase.execute(selectedRoute!!)
+                            deleteFavouriteRouteUseCase.execute(selectedRoute!!, token)
                             setUnLike()
                         } else {
-                            saveFavouriteRoute.execute(selectedRoute!!)
+                            saveFavouriteRoute.execute(selectedRoute!!, token)
                             setLike()
                         }
                     }

@@ -2,7 +2,7 @@ package com.yernazar.pidapplication.data.repository.server.api
 
 import com.yernazar.pidapplication.data.repository.model.UserSignIn
 import com.yernazar.pidapplication.data.repository.model.UserSignUp
-import com.yernazar.pidapplication.data.repository.server.loginResponse.LoginResponse
+import com.yernazar.pidapplication.data.repository.server.response.loginResponse.LoginResponse
 import com.yernazar.pidapplication.utils.config.Config
 import retrofit2.Response
 import retrofit2.http.Body
@@ -22,7 +22,7 @@ interface AuthApi {
 
         fun create() : AuthApi {
 
-            val retrofit = BaseApi.createRetrofit(BASE_URL)
+            val retrofit = BaseApi.createRetrofit(BASE_URL, null)
 
             return retrofit.create(AuthApi::class.java)
 

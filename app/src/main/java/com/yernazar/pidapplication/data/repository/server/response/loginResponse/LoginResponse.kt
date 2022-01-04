@@ -1,4 +1,4 @@
-package com.yernazar.pidapplication.data.repository.server.loginResponse
+package com.yernazar.pidapplication.data.repository.server.response.loginResponse
 
 data class LoginResponse(
     val jwtAuthResponse: JwtAuthResponse,

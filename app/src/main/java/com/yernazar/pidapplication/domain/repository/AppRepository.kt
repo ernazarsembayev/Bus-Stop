@@ -1,8 +1,9 @@
 package com.yernazar.pidapplication.domain.repository
 
 import com.yernazar.pidapplication.data.repository.model.*
-import com.yernazar.pidapplication.data.repository.server.loginResponse.LoginResponse
+import com.yernazar.pidapplication.data.repository.server.response.loginResponse.LoginResponse
 import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
+import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 
 interface AppRepository {
 
@@ -16,7 +17,7 @@ interface AppRepository {
 
     suspend fun getAllStops(): List<Stop>
 
-    suspend fun getRouteNextArrive(stopUid: String): List<Route>
+    suspend fun getRouteNextArrive(stopUid: String): List<RouteTime>
 
     suspend fun signIn(userSignIn: UserSignIn): LoginResponse
 
@@ -26,15 +27,15 @@ interface AppRepository {
 
     suspend fun getFavouriteRouteById(routeUid: String): Route?
 
-    suspend fun saveFavouriteRoute(route: Route)
+    suspend fun saveFavouriteRoute(route: Route, token: String)
 
     suspend fun saveFavouriteRoutes(routes: List<Route>)
 
-    suspend fun deleteFavouriteRoute(route: Route)
+    suspend fun deleteFavouriteRoute(route: Route, token: String)
 
-    suspend fun saveFavouriteTrip(trip: Trip)
+    suspend fun saveFavouriteTrip(trip: Trip, token: String)
 
-    suspend fun deleteFavouriteTrip(trip: Trip)
+    suspend fun deleteFavouriteTrip(trip: Trip, token: String)
 
     suspend fun saveFavouriteTrips(trips: List<Trip>)
 

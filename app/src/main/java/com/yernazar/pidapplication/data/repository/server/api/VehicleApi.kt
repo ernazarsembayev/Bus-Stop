@@ -18,7 +18,7 @@ interface VehicleApi {
 
         fun create() : StopApi {
 
-            val retrofit = BaseApi.createRetrofit(BASE_URL)
+            val retrofit = BaseApi.createRetrofit(BASE_URL, null)
 
             return retrofit.create(StopApi::class.java)
         }

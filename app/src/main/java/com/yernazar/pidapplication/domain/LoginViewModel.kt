@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.UserSignIn
 import com.yernazar.pidapplication.data.repository.model.UserSignUp
-import com.yernazar.pidapplication.data.repository.server.loginResponse.JwtAuthResponse
+import com.yernazar.pidapplication.data.repository.server.response.loginResponse.JwtAuthResponse
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRoutesUseCase
 import com.yernazar.pidapplication.domain.usecases.SaveFavouriteTripsUseCase
 import com.yernazar.pidapplication.domain.usecases.SignInUseCase

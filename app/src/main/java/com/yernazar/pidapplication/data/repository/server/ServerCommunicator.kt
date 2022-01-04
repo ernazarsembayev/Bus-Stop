@@ -3,7 +3,8 @@ package com.yernazar.pidapplication.data.repository.server
 import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.data.repository.server.api.*
 import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
-import com.yernazar.pidapplication.data.repository.server.loginResponse.LoginResponse
+import com.yernazar.pidapplication.data.repository.server.response.loginResponse.LoginResponse
+import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import retrofit2.Response
 
 class ServerCommunicator {
@@ -33,7 +34,7 @@ class ServerCommunicator {
         return stopApi.getAllStops()
     }
 
-    suspend fun getRouteNextArrive(stopUid: String): Response<List<Route>> {
+    suspend fun getRouteNextArrive(stopUid: String): Response<List<RouteTime>> {
         val stopApi = StopApi.create()
         return stopApi.getRoutes(stopUid)
     }
@@ -48,23 +49,23 @@ class ServerCommunicator {
         return authApi.signUp(userSignUp)
     }
 
-    suspend fun postFavouriteRoute(routeUid: String): Response<Unit> {
-        val userApi = UserApi.create()
+    suspend fun postFavouriteRoute(routeUid: String, token: String): Response<Unit> {
+        val userApi = UserApi.create(token)
         return userApi.postFavouriteRoute(routeUid)
     }
 
-    suspend fun deleteFavouriteRoute(routeUid: String): Response<Unit> {
-        val userApi = UserApi.create()
+    suspend fun deleteFavouriteRoute(routeUid: String, token: String): Response<Unit> {
+        val userApi = UserApi.create(token)
         return userApi.deleteFavouriteRoute(routeUid)
     }
 
-    suspend fun postFavouriteTrip(tripUid: String): Response<Unit> {
-        val userApi = UserApi.create()
+    suspend fun postFavouriteTrip(tripUid: String, token: String): Response<Unit> {
+        val userApi = UserApi.create(token)
         return userApi.postFavouriteTrip(tripUid)
     }
 
-    suspend fun deleteFavouriteTrip(tripUid: String): Response<Unit> {
-        val userApi = UserApi.create()
+    suspend fun deleteFavouriteTrip(tripUid: String, token: String): Response<Unit> {
+        val userApi = UserApi.create(token)
         return userApi.deleteFavouriteTrip(tripUid)
     }
 

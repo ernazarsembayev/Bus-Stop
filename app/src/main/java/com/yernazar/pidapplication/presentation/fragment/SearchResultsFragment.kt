@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.yernazar.pidapplication.data.repository.model.Route
+import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import com.yernazar.pidapplication.databinding.FragmentSearchResultsBinding
 import com.yernazar.pidapplication.domain.SharedViewModel
 import com.yernazar.pidapplication.domain.usecases.GetFavouriteRoutes
@@ -84,7 +84,7 @@ class SearchResultsFragment : BaseFragment(), OnRouteSelectListener {
         }
     }
 
-    override fun onRouteSelect(route: Route) {
+    override fun onRouteSelect(route: RouteTime) {
         viewModel.onRouteSelect(route)
     }
 }

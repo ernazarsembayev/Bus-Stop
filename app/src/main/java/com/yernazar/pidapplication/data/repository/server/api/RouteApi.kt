@@ -26,7 +26,7 @@ interface RouteApi {
 
         fun create() : RouteApi {
 
-            val retrofit = BaseApi.createRetrofit(BASE_URL)
+            val retrofit = BaseApi.createRetrofit(BASE_URL, null)
 
             return retrofit.create(RouteApi::class.java)
         }

@@ -61,4 +61,10 @@ class LoginActivity : AppCompatActivity() {
                 fragment.toString())
             .commit()
     }
+
+    override fun onBackPressed() {
+        val mapsIntent = Intent(this, MapsActivity::class.java)
+        finish()
+        startActivity(mapsIntent)
+    }
 }

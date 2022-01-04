@@ -25,6 +25,8 @@ data class Route (
         val type: String,
         @SerializedName("url")
         val url: String,
+        @SerializedName("shapeId")
+        val shapeId: String,
         @SerializedName("night")
         val isNight: Boolean
         )

@@ -19,6 +19,7 @@ import com.yernazar.pidapplication.domain.usecases.*
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.data.repository.model.Stop
 import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.Vehicle
+import com.yernazar.pidapplication.data.repository.server.response.routeTimeResponse.RouteTime
 import com.yernazar.pidapplication.utils.BaseClusterItem
 import com.yernazar.pidapplication.utils.IconRenderer
 import com.yernazar.pidapplication.utils.config.Config.SERVER_QUERY_TIME
@@ -31,9 +32,8 @@ class SharedViewModel(application: Application)
     private val getRouteByNameLikeUseCase: GetRouteByNameLikeUseCase by inject()
     private val getRouteNextArriveUseCase: GetRouteNextArriveUseCase by inject()
     private val mGetRouteShapeVehiclesByRouteIdUseCase: GetRouteShapeVehiclesByRouteIdUseCase by inject()
-    private val getShapesByIdUseCase: GetShapesByIdUseCase by inject()
-    private val getRouteByIdUseCase: GetRouteByIdUseCase by inject()
     private val getAllStopsUseCase: GetAllStopsUseCase by inject()
+    private val getFavouriteRoutes: GetFavouriteRoutes by inject()
 
     private lateinit var mMap: GoogleMap
 
@@ -42,17 +42,19 @@ class SharedViewModel(application: Application)
     private val _liveDataStop = MutableLiveData<Stop>()
     private val _liveDataRouteShapeVehicles = MutableLiveData<RouteShapeVehicles>()
     private val _liveDataRoute = MutableLiveData<Route>()
-    private val _liveDataStopRoutes = MutableLiveData<List<Route>>()
+    private val _liveDataStopRoutes = MutableLiveData<List<RouteTime>>()
     private val _liveDataSearchRoute = MutableLiveData<List<Route>>()
     private val _liveDataVehicle = MutableLiveData<Vehicle>()
+    private val _liveDataFavouriteRoutes = MutableLiveData<List<Route>>()
 
     val liveDataBottomSheetState: LiveData<Int> = _liveDataBottomSheetState
     val liveDataStop: LiveData<Stop> = _liveDataStop
     val liveDataRouteShapeVehicles: LiveData<RouteShapeVehicles> = _liveDataRouteShapeVehicles
     val liveDataRoute: LiveData<Route> = _liveDataRoute
-    val liveDataStopRoutes: LiveData<List<Route>> = _liveDataStopRoutes
+    val liveDataStopRoutes: LiveData<List<RouteTime>> = _liveDataStopRoutes
     val liveDataSearchRoute: LiveData<List<Route>> = _liveDataSearchRoute
     val liveDataVehicle: LiveData<Vehicle> = _liveDataVehicle
+    val liveDataFavouriteRoutes: LiveData<List<Route>> = _liveDataFavouriteRoutes
 
     fun onRouteSelect(route: Route) {
         CoroutineScope(Dispatchers.Default).launch {
@@ -106,6 +108,12 @@ class SharedViewModel(application: Application)
 
                 }
             }
+        }
+    }
+
+    fun getFavouriteRoutes() {
+        CoroutineScope(Dispatchers.Default).launch {
+            _liveDataFavouriteRoutes.postValue(getFavouriteRoutes.execute())
         }
     }
 

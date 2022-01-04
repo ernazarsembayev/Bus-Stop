@@ -5,9 +5,9 @@ import com.yernazar.pidapplication.domain.repository.AppRepository
 
 class DeleteFavouriteRouteUseCase(private val appRepository: AppRepository) {
 
-    suspend fun execute(route: Route) {
+    suspend fun execute(route: Route, token: String) {
 
-        return appRepository.deleteFavouriteRoute(route)
+        return appRepository.deleteFavouriteRoute(route, token)
 
     }
 
