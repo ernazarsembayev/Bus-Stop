@@ -41,7 +41,7 @@ class BaseApi {
                     val responseX = response.newBuilder()
 
                     token?.let { token ->
-                        responseX.addHeader("Authorization", "Bearer $token")
+                        responseX.addHeader("Authorization", "Bearer " + token)
                     }
 
                     return responseX

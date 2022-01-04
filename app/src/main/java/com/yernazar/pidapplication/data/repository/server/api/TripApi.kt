@@ -11,22 +11,22 @@ import retrofit2.http.Path
 
 interface TripApi {
 
-    @GET("/{id}")
+    @GET("{id}")
     fun getById(@Path("id") id: Long) : Call<Route>
 
-    @GET("/{routeId}")
+    @GET("{routeId}")
     suspend fun getByRouteId(@Path("routeId") routeId: String) : Response<Trip?>
 
     // get vehicles for given trip
-    @GET("/{id}/vehicles")
+    @GET("{id}/vehicles")
     fun getVehicles(@Path("id") id: Long) : Call<Set<Vehicle>>
 
     // get geoshape i.e. set of geopoints to represent path(shape)
-    @GET("/{id}/shape")
+    @GET("{id}/shape")
     fun getShape(@Path("id") id: Long) : Call<ShapeOld>
 
     // get current position
-    @GET("/{id}/position")
+    @GET("{id}/position")
     fun getPosition(@Path("id") id: Long) : Call<Position>
 
 

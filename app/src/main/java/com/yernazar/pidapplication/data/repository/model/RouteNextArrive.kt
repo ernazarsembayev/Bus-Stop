@@ -7,5 +7,6 @@ data class RouteNextArrive(
     val type: String,
     val url: String,
     val nextArrive: Long,
+    val shapeId: String,
     val isNight: Boolean
 )

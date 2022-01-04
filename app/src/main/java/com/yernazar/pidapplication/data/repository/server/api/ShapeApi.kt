@@ -10,7 +10,7 @@ import retrofit2.http.Path
 
 interface ShapeApi {
 
-    @GET("/{id}")
+    @GET("{id}")
     suspend fun getById(@Path("id") shapeId: String) : Response<List<ShapeOld>>
 
     companion object {

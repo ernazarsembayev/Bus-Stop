@@ -31,10 +31,10 @@ interface RouteDao {
 
 
 
-    @Query("select route.uid as uid,  route.longName as longName, route.shortName as shortName, route.type as type, " +
-            "route.url as url, route.isNight as isNight, vehicle.nextStopArrival as nextArrive from route " +
-            "inner join trip on route.uid = trip.routeId " +
-            "inner join vehicle on trip.uid = vehicle.tripId " +
-            "where vehicle.nextStopId = :nextStopId")
-    fun getRouteNextArrive(nextStopId: String) : List<RouteNextArrive>
+//    @Query("select route.uid as uid,  route.longName as longName, route.shortName as shortName, route.type as type, " +
+//            "route.url as url, route.isNight as isNight, vehicle.nextStopArrival as nextArrive from route " +
+//            "inner join trip on route.uid = trip.routeId " +
+//            "inner join vehicle on trip.uid = vehicle.tripId " +
+//            "where vehicle.nextStopId = :nextStopId")
+//    fun getRouteNextArrive(nextStopId: String) : List<RouteNextArrive>
 }

@@ -55,7 +55,7 @@ class RoutesAdapter(val onRouteSelectListener: OnRouteSelectListener) : Recycler
 
         if (routeNextArrive != null) {
             holder.routeNameTv.text = routeNextArrive.route.longName
-            holder.nextInTv.text = pattern.format(routeNextArrive.expectedArrival)
+            holder.nextInTv.text = routeNextArrive.expectedArrival
         }
 
     }

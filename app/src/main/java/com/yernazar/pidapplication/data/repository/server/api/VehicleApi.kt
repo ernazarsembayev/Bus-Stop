@@ -10,7 +10,7 @@ import retrofit2.http.Path
 
 interface VehicleApi {
 
-    @GET("/{id}")
+    @GET("{id}")
     fun getById(@Path("id") id: Long) : Call<Route>
 
     companion object {

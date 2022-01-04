@@ -53,8 +53,10 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
                 }
 
             } catch (e: Exception) {
-                Toast.makeText(getApplication(), R.string.login_error, Toast.LENGTH_SHORT)
-                    .show()
+                CoroutineScope(Dispatchers.Main).launch {
+                    Toast.makeText(getApplication(), R.string.login_error, Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
         }
     }

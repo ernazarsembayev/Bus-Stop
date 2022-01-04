@@ -13,24 +13,24 @@ import retrofit2.http.Path
 
 interface UserApi {
 
-    @GET("/routes")
+    @GET("routes")
     fun getFavouriteRoutes() : Response<List<Route>>
 
-    @GET("/trips")
+    @GET("trips")
     fun getFavouriteTrips() : Response<List<Route>>
 
-    @POST("/routes/{routeId}")
+    @POST("routes/{routeId}")
     suspend fun postFavouriteRoute(@Path("routeId") routeUid: String) : Response<Unit>
 
     // get vehicles for given trip
-    @DELETE("/routes/{routeId}")
+    @DELETE("routes/{routeId}")
     suspend fun deleteFavouriteRoute(@Path("routeId") routeId: String) : Response<Unit>
 
-    @POST("/trips/{tripId}")
+    @POST("trips/{tripId}")
     suspend fun postFavouriteTrip(@Path("tripId") tripId: String) : Response<Unit>
 
     // get vehicles for given trip
-    @DELETE("/trips/{tripId}")
+    @DELETE("trips/{tripId}")
     suspend fun deleteFavouriteTrip(@Path("tripId") tripId: String) : Response<Unit>
 
     companion object {
