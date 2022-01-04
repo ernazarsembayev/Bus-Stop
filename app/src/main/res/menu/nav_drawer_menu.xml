@@ -4,6 +4,9 @@
     <item android:id="@+id/authorization"
         android:title="@string/auth"/>
 
+    <item android:id="@+id/logout"
+        android:title="@string/logout"/>
+
     <item android:id="@+id/item2"
         android:title="Item 2"/>
 

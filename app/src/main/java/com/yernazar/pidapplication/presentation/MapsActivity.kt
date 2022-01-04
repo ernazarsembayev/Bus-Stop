@@ -27,7 +27,9 @@ import com.yernazar.pidapplication.utils.config.Config
 import com.yernazar.pidapplication.databinding.ActivityMapsBinding
 import com.yernazar.pidapplication.domain.SharedViewModel
 import com.yernazar.pidapplication.data.repository.model.*
+import com.yernazar.pidapplication.domain.usecases.ClearFavouritesUseCase
 import com.yernazar.pidapplication.presentation.fragment.*
+import com.yernazar.pidapplication.utils.config.Config.SP_IS_AUTH
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -43,6 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val tripFragment: TripFragment by inject()
     private val routeFragment: RouteFragment by inject()
     private val stopFragment: StopFragment by inject()
+    private val clearFavouritesUseCase: ClearFavouritesUseCase by inject()
 
     private val viewModel by viewModel<SharedViewModel>()
 
@@ -199,6 +202,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+        val sharedPreferences = getSharedPreferences(Config.SHARED_PREFERENCES, MODE_PRIVATE)
+
+        if (!sharedPreferences.getBoolean(SP_IS_AUTH, false))
+            binding.navView.menu.findItem(R.id.logout).isVisible = false
+
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.authorization -> {
@@ -206,6 +214,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     val loginIntent = Intent(this, LoginActivity::class.java)
                     startActivity(loginIntent)
                     binding.drawerLayout.closeDrawer(GravityCompat.END)
+                }
+                R.id.logout -> {
+
+                    CoroutineScope(Dispatchers.Default).launch {
+                        clearFavouritesUseCase.execute()
+
+                        val editor = sharedPreferences.edit()
+                        editor.clear()
+                        editor.apply()
+                    }
+
+                    // Restart Activity
+                    val intent = intent
+                    finish()
+                    startActivity(intent)
                 }
                 R.id.item2 -> Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
             }

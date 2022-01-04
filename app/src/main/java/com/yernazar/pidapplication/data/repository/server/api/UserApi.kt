@@ -20,18 +20,18 @@ interface UserApi {
     fun getFavouriteTrips() : Response<List<Route>>
 
     @POST("/routes/{routeId}")
-    suspend fun postFavouriteRoute(@Path("routeId") routeId: String) : Response<Trip?>
+    suspend fun postFavouriteRoute(@Path("routeId") routeUid: String) : Response<Unit>
 
     // get vehicles for given trip
     @DELETE("/routes/{routeId}")
-    suspend fun deleteFavouriteRoute(@Path("routeId") routeId: String) : Response<Trip?>
+    suspend fun deleteFavouriteRoute(@Path("routeId") routeId: String) : Response<Unit>
 
     @POST("/trips/{tripId}")
-    suspend fun postFavouriteTrip(@Path("tripId") tripId: String) : Response<Trip?>
+    suspend fun postFavouriteTrip(@Path("tripId") tripId: String) : Response<Unit>
 
     // get vehicles for given trip
     @DELETE("/trips/{tripId}")
-    suspend fun deleteFavouriteTrip(@Path("tripId") tripId: String) : Response<Trip?>
+    suspend fun deleteFavouriteTrip(@Path("tripId") tripId: String) : Response<Unit>
 
     companion object {
         private var BASE_URL = Config.BASE_URL + "api/user/"

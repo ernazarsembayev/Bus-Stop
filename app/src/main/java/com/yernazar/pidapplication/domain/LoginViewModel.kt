@@ -8,40 +8,53 @@ import androidx.lifecycle.MutableLiveData
 import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.UserSignIn
 import com.yernazar.pidapplication.data.repository.model.UserSignUp
-import com.yernazar.pidapplication.data.repository.server.response.tokenResponse.Token
+import com.yernazar.pidapplication.data.repository.server.loginResponse.JwtAuthResponse
+import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRoutesUseCase
+import com.yernazar.pidapplication.domain.usecases.SaveFavouriteTripsUseCase
 import com.yernazar.pidapplication.domain.usecases.SignInUseCase
 import com.yernazar.pidapplication.domain.usecases.SignUpUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.component.inject
+import java.lang.Exception
 
 class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     private val signInUseCase: SignInUseCase by inject()
     private val signUpUseCase: SignUpUseCase by inject()
+    private val saveFavouriteRoutesUseCase: SaveFavouriteRoutesUseCase by inject()
+    private val saveFavouriteTripsUseCase: SaveFavouriteTripsUseCase by inject()
 
-    private val _liveDataToken = MutableLiveData<Token>()
+    private val _liveDataToken = MutableLiveData<JwtAuthResponse>()
     private val _liveDataShowSignUp = MutableLiveData<Unit>()
     private val _liveDataShowLogIn = MutableLiveData<Unit>()
 
-    val liveDataToken: LiveData<Token> = _liveDataToken
+    val liveDataToken: LiveData<JwtAuthResponse> = _liveDataToken
     val liveDataShowSignUp: LiveData<Unit> = _liveDataShowSignUp
     val liveDataShowLogIn: LiveData<Unit> = _liveDataShowLogIn
 
 
     fun onSignIn(userSignIn: UserSignIn){
         CoroutineScope(Dispatchers.Default).launch {
-            val result = signInUseCase.execute(userSignIn)
-            Log.e("token", result.accessToken)
-            CoroutineScope(Dispatchers.Main).launch {
-                if (result.tokenType != "invalid") {
-                    _liveDataToken.value = result
+            try {
+
+                val result = signInUseCase.execute(userSignIn)
+
+                if (result.user.favouriteRoutes.isNotEmpty()) {
+                    saveFavouriteRoutesUseCase.execute(result.user.favouriteRoutes)
                 }
-                else {
-                    Toast.makeText(getApplication(), R.string.login_error, Toast.LENGTH_SHORT)
-                        .show()
+                if (result.user.favouriteTrips.isNotEmpty()) {
+                    saveFavouriteTripsUseCase.execute(result.user.favouriteTrips)
                 }
+
+                CoroutineScope(Dispatchers.Main).launch {
+                        _liveDataToken.value = result.jwtAuthResponse
+                }
+
+            } catch (e: Exception) {
+                Toast.makeText(getApplication(), R.string.login_error, Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }

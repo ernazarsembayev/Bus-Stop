@@ -10,15 +10,13 @@ import com.yernazar.pidapplication.R
 import com.yernazar.pidapplication.data.repository.model.Route
 import com.yernazar.pidapplication.databinding.FragmentRouteBinding
 import com.yernazar.pidapplication.domain.SharedViewModel
-import com.yernazar.pidapplication.domain.usecases.DeleteFavouriteRoute
-import com.yernazar.pidapplication.domain.usecases.GetAllStopsUseCase
+import com.yernazar.pidapplication.domain.usecases.DeleteFavouriteRouteUseCase
 import com.yernazar.pidapplication.domain.usecases.GetFavouriteRouteByUid
-import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRoute
+import com.yernazar.pidapplication.domain.usecases.SaveFavouriteRouteUseCase
 import com.yernazar.pidapplication.utils.config.Config
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.core.component.inject
 
 class RouteFragment : BaseFragment() {
 
@@ -27,8 +25,8 @@ class RouteFragment : BaseFragment() {
     override val bottomSheetState = BottomSheetBehavior.STATE_HALF_EXPANDED
 
     private val getFavouriteRouteByUid: GetFavouriteRouteByUid by inject()
-    private val deleteFavouriteRoute: DeleteFavouriteRoute by inject()
-    private val saveFavouriteRoute: SaveFavouriteRoute by inject()
+    private val deleteFavouriteRouteUseCase: DeleteFavouriteRouteUseCase by inject()
+    private val saveFavouriteRoute: SaveFavouriteRouteUseCase by inject()
 
     private var selectedRoute: Route? = null
 
@@ -65,7 +63,7 @@ class RouteFragment : BaseFragment() {
                         val route = getFavouriteRouteByUid.execute(it.uid)
 
                         if (route != null) {
-                            deleteFavouriteRoute.execute(selectedRoute!!)
+                            deleteFavouriteRouteUseCase.execute(selectedRoute!!)
                             setUnLike()
                         } else {
                             saveFavouriteRoute.execute(selectedRoute!!)

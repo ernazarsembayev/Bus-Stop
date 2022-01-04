@@ -38,11 +38,11 @@ val domainModule = module {
     }
 
     factory {
-        SaveFavouriteRoute(appRepository =  get())
+        SaveFavouriteRouteUseCase(appRepository =  get())
     }
 
     factory {
-        DeleteFavouriteRoute(appRepository =  get())
+        DeleteFavouriteRouteUseCase(appRepository =  get())
     }
 
     factory {
@@ -53,4 +53,15 @@ val domainModule = module {
         SignUpUseCase(appRepository =  get())
     }
 
+    factory {
+        ClearFavouritesUseCase(appRepository =  get())
+    }
+
+    factory {
+        SaveFavouriteRoutesUseCase(appRepository =  get())
+    }
+
+    factory {
+        SaveFavouriteTripsUseCase(appRepository =  get())
+    }
 }

@@ -36,5 +36,6 @@
     <string name="login_error">Login error</string>
     <string name="favourites">Favourites</string>
     <string name="hint_user_name">User name</string>
+    <string name="logout">Log out</string>
 
 </resources>

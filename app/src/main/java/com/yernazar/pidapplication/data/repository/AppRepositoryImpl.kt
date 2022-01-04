@@ -4,9 +4,9 @@ import android.util.Log
 import com.yernazar.pidapplication.data.repository.database.AppDatabase
 import com.yernazar.pidapplication.data.repository.model.*
 import com.yernazar.pidapplication.data.repository.server.ServerCommunicator
+import com.yernazar.pidapplication.data.repository.server.loginResponse.LoginResponse
 import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.RouteShapeVehicles
 import com.yernazar.pidapplication.domain.repository.AppRepository
-import com.yernazar.pidapplication.data.repository.server.response.tokenResponse.Token
 import java.lang.Exception
 
 class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, private val database: AppDatabase) : AppRepository {
@@ -68,14 +68,14 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
         return emptyList()
     }
 
-    override suspend fun signIn(userSignIn: UserSignIn): Token {
+    override suspend fun signIn(userSignIn: UserSignIn): LoginResponse {
 
         val authResponse = serverCommunicator.signIn(userSignIn = userSignIn)
         if (authResponse.isSuccessful)
             authResponse.body()?.let {
                 return it
             }
-        return Token("", "invalid")
+        throw Exception()
     }
 
 
@@ -104,11 +104,35 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
     }
 
     override suspend fun saveFavouriteRoute(route: Route) {
+        serverCommunicator.postFavouriteRoute(routeUid = route.uid)
         database.favouriteRoutesDao().insert(route)
     }
 
     override suspend fun deleteFavouriteRoute(route: Route) {
+        serverCommunicator.deleteFavouriteRoute(routeUid = route.uid)
         database.favouriteRoutesDao().delete(route)
     }
 
+    override suspend fun saveFavouriteRoutes(routes: List<Route>) {
+        database.favouriteRoutesDao().insertAll(routes)
+    }
+
+    override suspend fun saveFavouriteTrips(trips: List<Trip>) {
+        database.tripDao().insertAll(trips)
+    }
+
+    override suspend fun saveFavouriteTrip(trip: Trip) {
+        serverCommunicator.postFavouriteTrip(tripUid = trip.uid)
+        database.tripDao().insert(trip)
+    }
+
+    override suspend fun deleteFavouriteTrip(trip: Trip) {
+        serverCommunicator.deleteFavouriteTrip(tripUid = trip.uid)
+        database.tripDao().delete(trip)
+    }
+
+    override suspend fun clearFavourites() {
+        database.favouriteRoutesDao().deleteAllFavouriteRoutes()
+        database.tripDao().deleteAllTrips()
+    }
 }
