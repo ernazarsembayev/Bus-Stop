@@ -35,19 +35,15 @@ class BaseApi {
         private fun onIntercept(chain: Interceptor.Chain, token: String?): okhttp3.Response {
             try {
 
-                val response = chain.proceed(chain.request())
-                response.body()?.let { responseBody ->
-                    val content = responseBody.string()
-                    val responseX = response.newBuilder()
+                var request = chain.request()
 
-                    token?.let { token ->
-                        responseX.addHeader("Authorization", "Bearer " + token)
-                    }
-
-                    return responseX
-                        .body(ResponseBody.create(responseBody.contentType(), content))
+                token?.let {
+                    request = request.newBuilder()
+                        .addHeader("Authorization", "Bearer $token")
                         .build()
                 }
+
+                return chain.proceed(request)
 
             } catch (exception: SocketTimeoutException) {
                 exception.printStackTrace()

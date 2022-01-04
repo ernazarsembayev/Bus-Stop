@@ -118,6 +118,10 @@ class AppRepositoryImpl(private val serverCommunicator: ServerCommunicator, priv
         database.favouriteRoutesDao().insertAll(routes)
     }
 
+    override suspend fun getFavouriteTripById(tripUid: String): Trip? {
+        return database.tripDao().getById(tripUid)
+    }
+
     override suspend fun saveFavouriteTrips(trips: List<Trip>) {
         database.tripDao().insertAll(trips)
     }

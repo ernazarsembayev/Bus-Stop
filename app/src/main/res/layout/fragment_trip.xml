@@ -15,6 +15,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/like_ib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:contentDescription="@string/like"
+        android:src="@drawable/ic_favorite_border"
+        app:layout_constraintBottom_toBottomOf="@id/route_name_tv"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/direction_tv"
         android:layout_width="0dp"

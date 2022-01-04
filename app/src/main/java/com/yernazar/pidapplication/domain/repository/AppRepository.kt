@@ -33,6 +33,8 @@ interface AppRepository {
 
     suspend fun deleteFavouriteRoute(route: Route, token: String)
 
+    suspend fun getFavouriteTripById(tripUid: String): Trip?
+
     suspend fun saveFavouriteTrip(trip: Trip, token: String)
 
     suspend fun deleteFavouriteTrip(trip: Trip, token: String)

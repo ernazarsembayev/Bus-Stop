@@ -1,6 +1,7 @@
 package com.yernazar.pidapplication.presentation.fragment
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ class RouteFragment : BaseFragment() {
     private val saveFavouriteRoute: SaveFavouriteRouteUseCase by inject()
 
     private var selectedRoute: Route? = null
+    private lateinit var sharedPreferences: SharedPreferences
 
     private val mViewModel: SharedViewModel by sharedViewModel()
 
@@ -45,16 +47,10 @@ class RouteFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
-            binding.routeShortNameTv.text = it.shortName
-            binding.routeLongNameTv.text = it.longName
+        sharedPreferences = requireActivity().getSharedPreferences(Config.SHARED_PREFERENCES,Context.MODE_PRIVATE)
 
-            selectedRoute = it
-        })
-
-        val sharedPreferences = requireActivity().getSharedPreferences(Config.SHARED_PREFERENCES,Context.MODE_PRIVATE)
-        val token = sharedPreferences.getString(SP_TOKEN, "")
-        if (token != null && token != "") {
+        val token = sharedPreferences.getString(SP_TOKEN, null)
+        if (token != null) {
 
             binding.likeIb.visibility = View.VISIBLE
 
@@ -75,8 +71,24 @@ class RouteFragment : BaseFragment() {
 
                 }
             }
-
         }
+
+        mViewModel.liveDataRoute.observe(viewLifecycleOwner, {
+            binding.routeShortNameTv.text = it.shortName
+            binding.routeLongNameTv.text = it.longName
+
+            if (token != null){
+                CoroutineScope(Dispatchers.Default).launch {
+                    val favouriteRoute = getFavouriteRouteByUid.execute(routeUid = it.uid)
+
+                    favouriteRoute?.let {
+                        setLike()
+                    }
+                }
+            }
+
+            selectedRoute = it
+        })
     }
 
     private fun setLike() {
@@ -90,5 +102,4 @@ class RouteFragment : BaseFragment() {
             binding.likeIb.setImageResource(R.drawable.ic_favorite_border)
         }
     }
-
 }

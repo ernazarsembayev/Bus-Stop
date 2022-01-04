@@ -64,4 +64,16 @@ val domainModule = module {
     factory {
         SaveFavouriteTripsUseCase(appRepository =  get())
     }
+
+    factory {
+        GetFavouriteTripByUid(appRepository =  get())
+    }
+
+    factory {
+        DeleteFavouriteTripUseCase(appRepository =  get())
+    }
+
+    factory {
+        SaveFavouriteTripUseCase(appRepository =  get())
+    }
 }

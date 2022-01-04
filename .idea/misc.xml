@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ernaz/Downloads/Bus-Stop/app/src/main/res/drawable/ic_vehicle_point.xml" value="0.1" />
         <entry key="..\:/Users/ernaz/Downloads/Bus-Stop/app/src/main/res/layout/activity_maps.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/ernaz/Downloads/Bus-Stop/app/src/main/res/layout/fragmen_favourite_routes.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/ernaz/Downloads/Bus-Stop/app/src/main/res/layout/fragment_route.xml" value="0.16621376811594202" />
