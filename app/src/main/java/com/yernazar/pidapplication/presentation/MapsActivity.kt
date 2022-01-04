@@ -32,6 +32,7 @@ import com.yernazar.pidapplication.domain.usecases.ClearFavouritesUseCase
 import com.yernazar.pidapplication.presentation.fragment.*
 import com.yernazar.pidapplication.utils.config.Config.SP_IS_AUTH
 import com.yernazar.pidapplication.utils.config.Config.SP_USER_NAME
+import kotlinx.android.synthetic.main.nav_header.view.*
 import kotlinx.coroutines.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -210,7 +211,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val isAuth = sharedPreferences.getBoolean(SP_IS_AUTH, false)
 
         if (isAuth)
-            binding.navView.findViewById<TextView>(R.id.drawerHeaderTitle).text =
+            binding.navView.inflateHeaderView(R.layout.nav_header).drawerHeaderTitle.text =
                 sharedPreferences.getString(SP_USER_NAME, "")
 
         binding.navView.menu.findItem(R.id.authorization).isVisible = !isAuth
