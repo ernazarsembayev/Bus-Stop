@@ -1,6 +1,7 @@
 package com.yernazar.pidapplication.data.repository.server.api
 
 import com.yernazar.pidapplication.data.repository.model.*
+import com.yernazar.pidapplication.data.repository.server.response.routeShapeTripsResponse.Vehicle
 import com.yernazar.pidapplication.utils.config.Config
 import retrofit2.Call
 import retrofit2.Response

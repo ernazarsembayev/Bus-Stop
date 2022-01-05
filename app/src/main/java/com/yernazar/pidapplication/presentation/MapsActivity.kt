@@ -234,18 +234,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 R.id.logout -> {
 
+                    binding.drawerLayout.closeDrawer(GravityCompat.END)
+
                     CoroutineScope(Dispatchers.Default).launch {
                         clearFavouritesUseCase.execute()
 
                         val editor = sharedPreferences.edit()
                         editor.clear()
                         editor.apply()
+
+                        CoroutineScope(Dispatchers.Main).launch {
+                            // Restart Activity
+                            val intent = intent
+                            finish()
+                            startActivity(intent)
+                        }
                     }
 
-                    // Restart Activity
-                    val intent = intent
-                    finish()
-                    startActivity(intent)
                 }
                 R.id.item2 -> Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
             }
